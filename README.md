@@ -33,4 +33,4 @@ Pour accéder à la partie administration taper dan le navigateur
 
 
 ## Présentation de la page d'accueil de Restaurant la savoureuse
-![Page d'accueil de DavysLanguages](https://github.com/davahiatak1/hotel-ecole-la-savoureuse/blob/master/davyslanguages-capture-1.jpg)
+![Page d'accueil de DavysLanguages](https://github.com/ahiatak/davyslanguages/blob/master/davyslanguages-capture-1.jpg)
