@@ -173,18 +173,26 @@
                                                                     </span>
 
                                                                     <span class="phone_block"><span class="email_label">{{ $texts->where('id', 73)->first()->text }}</span>
-                                                                        <span class="contacts_email">
-                                                                            <i class="fa fa-mobile" style="color: #3e3ed3"> </i>
-                                                                            <a href="tel:{{$davyslanguages->tel1}}">{{$davyslanguages->tel1}}</a>
-                                                                        </span>
-                                                                        <span class="contacts_email">
-                                                                            <i class="fa fa-mobile" style="color: #3e3ed3"> </i>
-                                                                            <a href="tel:{{$davyslanguages->tel2}}">{{$davyslanguages->tel2}}</a>
-                                                                        </span>
-                                                                        <span class="contacts_email">
-                                                                            <i class="fa fa-whatsapp" style="color: #3e3ed3"> </i>
-                                                                            <a href="https://api.whatsapp.com/send?phone={{$davyslanguages->tel5}}">+{{$davyslanguages->tel5}}</a>
-                                                                        </span>
+                                                                        @if($davyslanguages->tel1)
+                                                                            <span class="contacts_email">
+                                                                                <i class="fa fa-mobile" style="color: #3e3ed3"> </i>
+                                                                                <a href="tel:{{$davyslanguages->tel1}}">{{$davyslanguages->tel1}}</a>
+                                                                            </span>
+                                                                        @endif
+
+                                                                        @if($davyslanguages->tel2)
+                                                                            <span class="contacts_email">
+                                                                                <i class="fa fa-mobile" style="color: #3e3ed3"> </i>
+                                                                                <a href="tel:{{$davyslanguages->tel2}}">{{$davyslanguages->tel2}}</a>
+                                                                            </span>
+                                                                        @endif
+
+                                                                        @if($davyslanguages->tel5)
+                                                                            <span class="contacts_email">
+                                                                                <i class="fa fa-whatsapp" style="color: #3e3ed3"> </i>
+                                                                                <a href="https://api.whatsapp.com/send?phone={{$davyslanguages->tel5}}">+{{$davyslanguages->tel5}}</a>
+                                                                            </span>
+                                                                        @endif
                                                                     </span>
 
                                                                     
