@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c263186c431e7c4ff2c670b91754f86",
+    "content-hash": "d1591852e2511668bd790725e9a11fec",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -3055,16 +3055,16 @@
         },
         {
             "name": "silviolleite/laravelpwa",
-            "version": "1.0.4",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silviolleite/laravel-pwa.git",
-                "reference": "4951f0d47b6943d9823e3c27d35b74016d99d735"
+                "reference": "5f7135d2ee870af01793c9fdf6b1b932b546e20e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silviolleite/laravel-pwa/zipball/4951f0d47b6943d9823e3c27d35b74016d99d735",
-                "reference": "4951f0d47b6943d9823e3c27d35b74016d99d735",
+                "url": "https://api.github.com/repos/silviolleite/laravel-pwa/zipball/5f7135d2ee870af01793c9fdf6b1b932b546e20e",
+                "reference": "5f7135d2ee870af01793c9fdf6b1b932b546e20e",
                 "shasum": ""
             },
             "type": "library",
@@ -3097,7 +3097,11 @@
                 "progressive web apps",
                 "pwa"
             ],
-            "time": "2019-04-03T11:23:08+00:00"
+            "support": {
+                "issues": "https://github.com/silviolleite/laravel-pwa/issues",
+                "source": "https://github.com/silviolleite/laravel-pwa/tree/2.0.3"
+            },
+            "time": "2020-08-20T12:19:16+00:00"
         },
         {
             "name": "spatie/browsershot",
@@ -7271,5 +7275,6 @@
     "platform": {
         "php": "^7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

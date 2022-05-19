@@ -15,7 +15,7 @@
         "laravel/tinker": "^1.0",
         "qoraiche/laravel-mail-editor": "^1.3",
         "realrashid/sweet-alert": "^2.0",
-        "silviolleite/laravelpwa": "^1.0",
+        "silviolleite/laravelpwa": "^2.0",
         "spatie/laravel-sitemap": "^5.5",
         "tcg/voyager": "^1.2",
         "writingink/wink": "^0.1.0"
