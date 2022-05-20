@@ -4,7 +4,7 @@ return [
     'name' => 'DavysLanguages',
     'manifest' => [
         'name' => env('APP_NAME', 'DavysLanguages'),
-        'short_name' => 'DL',
+        'short_name' => 'DavysLanguages',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#660066',
