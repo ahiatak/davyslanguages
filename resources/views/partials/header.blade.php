@@ -30,6 +30,9 @@
                                             <a href="{{route('galleries.index')}}"><span>{{ $texts->where('id', 5)->first()->text }}</span></a></li> --}}
                                     </ul>
                                 </li>
+                                <li id="menu-item-88" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88">
+                                    <a href="{{route('contacts.index')}}"><span>{{ $texts->where('id', 9)->first()->text }}</span></a>
+                                </li>
                                 <li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95">
                                     <a href="{{route('services.index')}}"><span>{{ $texts->where('id', 6)->first()->text }}</span></a>
                                 </li>
@@ -38,9 +41,6 @@
                                 </li>
                                 <li id="menu-item-115" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-115">
                                     <a href="{{route('posts.index')}}"><span>{{ $texts->where('id', 8)->first()->text }}</span></a>
-                                </li>
-                                <li id="menu-item-88" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88">
-                                    <a href="{{route('contacts.index')}}"><span>{{ $texts->where('id', 9)->first()->text }}</span></a>
                                 </li>
                             </ul>
                         </nav>

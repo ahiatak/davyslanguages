@@ -1,82 +1,43 @@
--- phpMyAdmin SQL Dump
--- version 4.9.7
--- https://www.phpmyadmin.net/
---
--- Hôte : localhost:3306
--- Généré le : mar. 16 nov. 2021 à 16:23
--- Version du serveur :  5.7.36
--- Version de PHP : 7.3.32
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Base de données : `davyslan_davys`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `abouts`
---
 
 CREATE TABLE `abouts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `abouts`
---
 
 INSERT INTO `abouts` (`id`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'abouts/October2019/B918YpwDTyZ41LJEByO8.jpg', 'A propos de nous', '<p>Davys\' Languages est un centre de formation, de traduction et d\'interpretation qui propose des services d&rsquo;expertise linguistique exceptionnels. Nous avons une &eacute;quipe exp&eacute;riment&eacute;e et une certification de qualit&eacute; internationale.</p>\n<p>Avec Davys\' Languages, vous b&eacute;n&eacute;ficier d\'une formation intensive en Anglais et Fran&ccedil;ais en cours du jour et du soir &agrave; un prix tr&egrave;s accessible.</p>\n<p>Vous &ecirc;tes au Togo ou &agrave; l\'exterieur, vous voulez suivre des cours d\'anglais pour vous perfectionner. N\'h&eacute;siter pas &agrave; nous contacter.</p>', '2019-10-17 18:05:00', '2019-11-01 05:33:33');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `comments`
---
-
 CREATE TABLE `comments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED NOT NULL,
-  `comment` longtext COLLATE utf8mb4_unicode_ci,
+  `comment` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `contacts`
---
 
 CREATE TABLE `contacts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `message` longtext COLLATE utf8mb4_unicode_ci,
+  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `contacts`
---
 
 INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `message`, `created_at`, `updated_at`) VALUES
 (16, 'ETSEY Charles', NULL, '96102768', 'Slt à vs', '2019-11-07 14:35:42', '2019-11-07 14:35:42'),
@@ -254,13 +215,8 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `message`, `created_at`,
 (186, 'Moshe Korvin', 'LeeRefsell@gmail.com', NULL, 'I was wondering if you needed more website visitors, I can target them by niche and guarantee how many you\'ll get. Contact me via Skype here: live:.cid.e7ae096559e10740 and I\'ll be more than happy to talk to you more about this. Thanks, Bill R.', '2021-10-16 16:19:58', '2021-10-16 16:19:58'),
 (187, 'AJAVON AYI M.', 'ayiemmanuel@yahoo.fr', '90293571', 'Je désire booster mon anglais\r\nQuelles sont les modalités\r\nMerci', '2021-10-20 19:13:35', '2021-10-20 19:13:35'),
 (188, 'Phillipp', 'phillipp.lehmann@gmail.com', '044 657 38 33', 'An effective way to make big money running a small business.\r\n\r\nNeed to upgrade your company’s website and get rid of any errors? Finally, a comprehensive service where you can sit back and let the best in the world SEO Engineers to do everything for you.\r\n\r\n\r\nHere is the mad package you should have to captivate fresh customers online:\r\n	\r\nhttps://your-marketers.com/technicalseo\r\n\r\n\r\nRegards,\r\nWe offer the best IT services you can check on our shop to make big money in a small business. Still not thinking about getting new business? Here is a quick, 1-click unsubscribe link: https://your-marketers.com/?unsubscribe=davyslanguages.com', '2021-10-20 22:02:09', '2021-10-20 22:02:09'),
-(189, 'Eric', 'eric.jones.z.mail@gmail.com', '555-555-1212', 'Hey, this is Eric and I ran across davyslanguages.com a few minutes ago.\r\n\r\nLooks great… but now what?\r\n\r\nBy that I mean, when someone like me finds your website – either through Search or just bouncing around – what happens next?  Do you get a lot of leads from your site, or at least enough to make you happy?\r\n\r\nHonestly, most business websites fall a bit short when it comes to generating paying customers. Studies show that 70% of a site’s visitors disappear and are gone forever after just a moment.\r\n\r\nHere’s an idea…\r\n \r\nHow about making it really EASY for every visitor who shows up to get a personal phone call you as soon as they hit your site…\r\n \r\nYou can –\r\n  \r\nTalk With Web Visitor is a software widget that’s works on your site, ready to capture any visitor’s Name, Email address and Phone Number.  It signals you the moment they let you know they’re interested – so that you can talk to that lead while they’re literally looking over your site.\r\n\r\nCLICK HERE https://talkwithwebvisitors.com to try out a Live Demo with Talk With Web Visitor now to see exactly how it works.\r\n\r\nYou’ll be amazed - the difference between contacting someone within 5 minutes versus a half-hour or more later could increase your results 100-fold.\r\n\r\nIt gets even better… once you’ve captured their phone number, with our new SMS Text With Lead feature, you can automatically start a text (SMS) conversation.\r\n  \r\nThat way, even if you don’t close a deal right away, you can follow up with text messages for new offers, content links, even just “how you doing?” notes to build a relationship.\r\n\r\nPretty sweet – AND effective.\r\n\r\nCLICK HERE https://talkwithwebvisitors.com to discover what Talk With Web Visitor can do for your business.\r\n\r\nYou could be converting up to 100X more leads today!\r\n\r\nEric\r\nPS: Talk With Web Visitor offers a FREE 14 days trial – and it even includes International Long Distance Calling. \r\nYou have customers waiting to talk with you right now… don’t keep them waiting. \r\nCLICK HERE https://talkwithwebvisitors.com to try Talk With Web Visitor now.\r\n\r\nIf you\'d like to unsubscribe click here http://talkwithwebvisitors.com/unsubscribe.aspx?d=davyslanguages.com', '2021-10-29 04:20:08', '2021-10-29 04:20:08');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `data_rows`
---
+(189, 'Eric', 'eric.jones.z.mail@gmail.com', '555-555-1212', 'Hey, this is Eric and I ran across davyslanguages.com a few minutes ago.\r\n\r\nLooks great… but now what?\r\n\r\nBy that I mean, when someone like me finds your website – either through Search or just bouncing around – what happens next?  Do you get a lot of leads from your site, or at least enough to make you happy?\r\n\r\nHonestly, most business websites fall a bit short when it comes to generating paying customers. Studies show that 70% of a site’s visitors disappear and are gone forever after just a moment.\r\n\r\nHere’s an idea…\r\n \r\nHow about making it really EASY for every visitor who shows up to get a personal phone call you as soon as they hit your site…\r\n \r\nYou can –\r\n  \r\nTalk With Web Visitor is a software widget that’s works on your site, ready to capture any visitor’s Name, Email address and Phone Number.  It signals you the moment they let you know they’re interested – so that you can talk to that lead while they’re literally looking over your site.\r\n\r\nCLICK HERE https://talkwithwebvisitors.com to try out a Live Demo with Talk With Web Visitor now to see exactly how it works.\r\n\r\nYou’ll be amazed - the difference between contacting someone within 5 minutes versus a half-hour or more later could increase your results 100-fold.\r\n\r\nIt gets even better… once you’ve captured their phone number, with our new SMS Text With Lead feature, you can automatically start a text (SMS) conversation.\r\n  \r\nThat way, even if you don’t close a deal right away, you can follow up with text messages for new offers, content links, even just “how you doing?” notes to build a relationship.\r\n\r\nPretty sweet – AND effective.\r\n\r\nCLICK HERE https://talkwithwebvisitors.com to discover what Talk With Web Visitor can do for your business.\r\n\r\nYou could be converting up to 100X more leads today!\r\n\r\nEric\r\nPS: Talk With Web Visitor offers a FREE 14 days trial – and it even includes International Long Distance Calling. \r\nYou have customers waiting to talk with you right now… don’t keep them waiting. \r\nCLICK HERE https://talkwithwebvisitors.com to try Talk With Web Visitor now.\r\n\r\nIf you\'d like to unsubscribe click here http://talkwithwebvisitors.com/unsubscribe.aspx?d=davyslanguages.com', '2021-10-29 04:20:08', '2021-10-29 04:20:08'),
+(190, 'zerz', 'zerz@fgfd', '565646', 'sdfsdf', '2022-05-19 16:16:44', '2022-05-19 16:16:44');
 
 CREATE TABLE `data_rows` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -268,19 +224,15 @@ CREATE TABLE `data_rows` (
   `field` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `required` tinyint(1) NOT NULL DEFAULT '0',
-  `browse` tinyint(1) NOT NULL DEFAULT '1',
-  `read` tinyint(1) NOT NULL DEFAULT '1',
-  `edit` tinyint(1) NOT NULL DEFAULT '1',
-  `add` tinyint(1) NOT NULL DEFAULT '1',
-  `delete` tinyint(1) NOT NULL DEFAULT '1',
-  `details` text COLLATE utf8mb4_unicode_ci,
-  `order` int(11) NOT NULL DEFAULT '1'
+  `required` tinyint(1) NOT NULL DEFAULT 0,
+  `browse` tinyint(1) NOT NULL DEFAULT 1,
+  `read` tinyint(1) NOT NULL DEFAULT 1,
+  `edit` tinyint(1) NOT NULL DEFAULT 1,
+  `add` tinyint(1) NOT NULL DEFAULT 1,
+  `delete` tinyint(1) NOT NULL DEFAULT 1,
+  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `data_rows`
---
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
 (1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
@@ -482,12 +434,6 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (213, 27, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 11),
 (214, 21, 'gallery_belongsto_gallery_category_relationship', 'relationship', 'gallery_categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\GalleryCategory\",\"table\":\"gallery_categories\",\"type\":\"belongsTo\",\"column\":\"gallery_category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"abouts\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `data_types`
---
-
 CREATE TABLE `data_types` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -499,16 +445,12 @@ CREATE TABLE `data_types` (
   `policy_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `controller` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `generate_permissions` tinyint(1) NOT NULL DEFAULT '0',
-  `server_side` tinyint(4) NOT NULL DEFAULT '0',
-  `details` text COLLATE utf8mb4_unicode_ci,
+  `generate_permissions` tinyint(1) NOT NULL DEFAULT 0,
+  `server_side` tinyint(4) NOT NULL DEFAULT 0,
+  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `data_types`
---
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
 (1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', '', 1, 0, NULL, '2019-10-10 15:19:21', '2019-10-10 15:19:21'),
@@ -537,12 +479,6 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (26, 'sections', 'sections', 'Section', 'Sections', 'voyager-puzzle', 'App\\Section', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-10-11 11:34:55', '2019-10-28 18:02:32'),
 (27, 'teams', 'teams', 'Team', 'Teams', 'voyager-group', 'App\\Team', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-10-24 07:01:38', '2019-10-24 07:07:59');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `entreprises`
---
-
 CREATE TABLE `entreprises` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -554,10 +490,10 @@ CREATE TABLE `entreprises` (
   `photo1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `photo2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `photo3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `titre` text COLLATE utf8mb4_unicode_ci,
-  `about1` longtext COLLATE utf8mb4_unicode_ci,
-  `about2` longtext COLLATE utf8mb4_unicode_ci,
-  `about3` longtext COLLATE utf8mb4_unicode_ci,
+  `titre` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about1` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about2` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about3` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `youtube` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -579,18 +515,8 @@ CREATE TABLE `entreprises` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `entreprises`
---
-
 INSERT INTO `entreprises` (`id`, `name1`, `name2`, `name3`, `logo1`, `logo2`, `logo3`, `photo1`, `photo2`, `photo3`, `titre`, `about1`, `about2`, `about3`, `facebook`, `youtube`, `twitter`, `instagram`, `linkedin`, `skype`, `whatsapp`, `mail1`, `mail2`, `mail3`, `mail4`, `mail5`, `tel1`, `tel2`, `tel3`, `tel4`, `tel5`, `created_at`, `updated_at`) VALUES
 (1, 'Davys\' Languages', NULL, NULL, 'entreprises\\October2019\\4dRqwifjnmVSLW9nv4Qu.png', 'entreprises\\October2019\\TIRPmFs6a7Fgrw1tL9U0.png', 'entreprises\\October2019\\sHgFpHqVImAmteVmbk20.png', 'entreprises\\October2019\\mYjx01ccYjAbkKN4QIHX.jpeg', NULL, NULL, NULL, 'Situé à Novissi dans  la von du Pressing du Golfe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'davyslanguagestg@gmail.com', 'ahiatak.dav@gmail.com', NULL, NULL, NULL, '+228 91 90 61 12', '+228 99 40 86 71', NULL, NULL, '22891906112', '2019-10-17 16:19:00', '2021-08-12 09:26:21');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `failed_jobs`
---
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
@@ -598,52 +524,32 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `faqs`
---
 
 CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `faqs`
---
 
 INSERT INTO `faqs` (`id`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Qui peut suivre nos formations ?', 'Si vous souhaitez prendre des cours en Anglais et Français,<br>\nSi vous désirez suivre une formation d’anglais ou de Français dans le cadre de votre recherche d’emploi , de voyage etc...<br>\nSi vous souhaitez former vos collaborateurs en  Anglais et Français pour qu’ils représentent votre entreprise à l’étranger,<br>\nSi votre enfant a besoin d’un soutien scolaire en Anglais ou Français..', '2019-10-22 15:52:00', '2019-10-24 17:05:40'),
 (2, NULL, 'Quelles sont nos méthodes d’apprentissage ?', 'La méthode qu\'utilise Davys\'languages est parfaitement dédiée à l’apprentissage des langues, qu’elles soient usuelles telles que l’anglais ou le français.\n\nNos cours de langue reposent sur les principes fondamentaux reconnus de méthode directe, progressive et communicative.\n\nL’apprenant est au cœur de son apprentissage, toujours en action et soutenu par le formateur. Ce dernier est un professionnel qui est là pour vous motiver, vous donner confiance et adapter sa pédagogie à vos besoins.', '2019-10-22 15:52:00', '2019-10-26 11:38:33'),
 (4, NULL, 'Quelles sont nos formations en langue ?', 'L’objectif de nos cours de langue  est de vous apporter des solutions adaptées à vos attentes.\n\nQuel que soit votre niveau en langue et vos besoins, apprenez l’anglais et  le français avec un expert de la formation.\n\nNous vous préparons également aux certifications internationales et professionnelles tels que le TOEFL, IELTS etc.\n\nDavys \' languages met à votre disposition des programmes pédagogiques spécifiques en relation avec votre métier (anglais des affaires, la rédaction de mails, comment voyager à l’étranger...).', '2019-10-22 15:53:00', '2019-10-24 16:08:46');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `galleries`
---
-
 CREATE TABLE `galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `gallery_category_id` bigint(20) UNSIGNED DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `galleries`
---
 
 INSERT INTO `galleries` (`id`, `gallery_category_id`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (4, NULL, 'galleries/October2019/hoWnA6mDCizZJRrr345A.jpeg', '', '', '2019-10-29 10:41:59', '2019-10-29 10:41:59'),
@@ -652,12 +558,6 @@ INSERT INTO `galleries` (`id`, `gallery_category_id`, `image`, `title`, `descrip
 (7, NULL, 'galleries/October2019/IOTpJacqPk2d0tasAeuX.jpeg', '', '', '2019-10-29 10:42:57', '2019-10-29 10:42:57'),
 (8, NULL, 'galleries/October2019/Lucfk101B4Xt8byFdmll.jpeg', '', '', '2019-10-29 10:43:21', '2019-10-29 10:43:21');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `gallery_categories`
---
-
 CREATE TABLE `gallery_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -665,45 +565,25 @@ CREATE TABLE `gallery_categories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `gallery_categories`
---
-
 INSERT INTO `gallery_categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, '2017', '2019-10-24 07:31:58', '2019-10-24 07:31:58'),
 (2, '2018', '2019-10-24 07:32:10', '2019-10-24 07:32:10'),
 (3, '2019', '2019-10-24 07:32:22', '2019-10-24 07:32:22');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `how_it_works`
---
-
 CREATE TABLE `how_it_works` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `how_it_works`
---
-
 INSERT INTO `how_it_works` (`id`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Etape 1', 'Accédez au formulaire de commande, remplissez puis envoyez ! ', '2019-10-22 15:43:00', '2019-10-24 17:51:06'),
 (2, NULL, 'Etape 2', 'Vous recevrez par mail ou téléphone le prix de la commande.', '2019-10-22 15:44:00', '2019-10-24 17:51:24'),
-(3, NULL, 'Etape 3', 'Approuver le devis et payer', '2019-10-24 17:42:57', '2019-10-24 17:42:57'),
-(4, NULL, 'Etape 4', 'Votre traduction sera prêt dans votre boîte de réception ou par le moyen que vous avez spécifié.', '2019-10-24 17:46:32', '2019-10-24 17:46:32');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `images`
---
+(3, NULL, 'Etape 3', 'Approuver le devis et payer', '2019-10-24 17:42:00', '2022-05-20 13:52:06'),
+(4, NULL, 'Etape 4', 'Votre traduction sera prêt dans votre boîte de réception ou par le moyen que vous avez spécifié.', '2019-10-24 17:46:00', '2022-05-20 13:51:39');
 
 CREATE TABLE `images` (
   `id` bigint(20) UNSIGNED NOT NULL,
@@ -711,10 +591,6 @@ CREATE TABLE `images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `images`
---
 
 INSERT INTO `images` (`id`, `url`, `created_at`, `updated_at`) VALUES
 (1, 'images\\October2019\\u53JaSX8ZU0S7Coi35jW.jpg', '2019-10-22 15:03:51', '2019-10-22 15:03:51'),
@@ -732,34 +608,18 @@ INSERT INTO `images` (`id`, `url`, `created_at`, `updated_at`) VALUES
 (13, 'images/October2019/Dp5tkCVOFclvBlCqkssc.jpeg', '2019-10-28 19:31:10', '2019-10-28 19:31:10'),
 (14, 'images/October2019/qSRdDi4d0ck8HRZgedIx.jpeg', '2019-10-29 10:17:26', '2019-10-29 10:17:26');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `learns`
---
-
 CREATE TABLE `learns` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `learns`
---
-
 INSERT INTO `learns` (`id`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (3, 'learns\\October2019\\EyuwoF4RPFFMct9Pzxt9.jpg', 'Comment vaincre la peur de l\'écriture dans une langue étrangère', '<p>Pour certains, se lancer dans une conversation dans une langue &eacute;trang&egrave;re se fait le plus simplement du monde. Quelques connaissances de vocabulaire, une bonne dose de confiance en soi, et le tour est jou&eacute;. Pour d&rsquo;autres, en revanche, l&rsquo;exercice est nettement plus compliqu&eacute;. Entre doutes sur son niveau de langue et sur ses capacit&eacute;s &agrave; tenir un &eacute;change sans perdre ses moyens, parler dans une autre langue peut repr&eacute;senter un blocage. Si c&rsquo;est votre cas, pas de panique, cette r&eacute;action est naturelle. D&eacute;couvrez quelques conseils pour savoir comment vaincre sa peur de parler une langue &eacute;trang&egrave;re, avec Assimil.</p>\n<h2>POURQUOI A-T-ON PEUR DE PARLER UNE LANGUE &Eacute;TRANG&Egrave;RE ?</h2>\n<p>Pour pouvoir vaincre sa peur de parler une langue &eacute;trang&egrave;re, il faut d&rsquo;abord pouvoir la comprendre et en analyser les causes. Les raisons peuvent &ecirc;tre multiples. Plus qu&rsquo;un d&eacute;faut de connaissances, ce probl&egrave;me prend souvent racine dans la timidit&eacute; ou dans un manque de confiance en soi. Il est fr&eacute;quent que cette peur soit li&eacute;e &agrave; l&rsquo;&eacute;cole ou &agrave; une mauvaise exp&eacute;rience (un entretien d&rsquo;embauche rat&eacute;, par exemple).La peur d&rsquo;&ecirc;tre ridicule, d&rsquo;&ecirc;tre jug&eacute; par les autres, ou d&rsquo;&ecirc;tre incompris est un facteur qui peut cr&eacute;er un blocage et emp&ecirc;cher de se lancer dans une conversation dans une langue &eacute;trang&egrave;re. Si vous avez cibl&eacute; votre crainte principale, tentez de travailler dessus.</p>\n<h2>N&rsquo;AYEZ PAS PEUR DE FAIRE DES ERREURS</h2>\n<p>Relativisez : il est normal de ne pas &ecirc;tre imm&eacute;diatement bilingue. Prenez plut&ocirc;t le probl&egrave;me &agrave; l&rsquo;envers : comment r&eacute;agissez-vous lorsqu&rsquo;un Anglais, par exemple, tente de parler fran&ccedil;ais ? L&rsquo;indulgence que vous avez pour quelqu&rsquo;un qui fait l&rsquo;effort de parler votre langue est &eacute;galement valable dans l&rsquo;autre sens.Vaincre sa peur de parler une langue &eacute;trang&egrave;re passe par accepter de faire des erreurs. Faites confiance aux natifs de la langue ou vos amis bilingues pour vous corriger. Ne vous formalisez pas et continuez de parler, de pratiquer, et vous progresserez naturellement.</p>\n<h2>AVANCEZ &Agrave; VOTRE RYTHME</h2>\n<p>Rien ne sert de courir, il faut partir &agrave; point. L&rsquo;une des clefs pour ne pas &ecirc;tre bloqu&eacute; par ses craintes reste d&rsquo;avancer &agrave; son rythme et de ne pas br&ucirc;ler les &eacute;tapes. Vous ne vous sentez pas de prendre la parole au milieu d&rsquo;un groupe de personnes ? Ne le faites pas tout de suite, rien ne presse. L&rsquo;important &eacute;tant que vous progressiez &agrave; votre rythme.Avant les discussions collectives, il est conseill&eacute; de commencer par parler tout seul, &agrave; voix haute. Un bon moyen pour travailler votre prononciation et cr&eacute;er certains automatismes de langage. Vous pouvez m&ecirc;me &laquo; faire l&rsquo;acteur &raquo; et simuler des petits sc&eacute;narios, des conversations. Il est &eacute;galement possible de vous enregistrer, voire de vous filmer, pour analyser votre expression et votre prononciation avec du recul.&Agrave; lire aussi : Trucs et astuces pour pratiquer une langue &eacute;trang&egrave;re chaque jour sans y penser</p>\n<h2>ENTOUREZ-VOUS D&rsquo;INTERLOCUTEURS BIENVEILLANTS</h2>\n<p>Votre pratique en solitaire pass&eacute;e, franchissez une &eacute;tape suppl&eacute;mentaire et lancez-vous dans un dialogue avec un interlocuteur capable de vous corriger. Id&eacute;alement, un natif de la langue parl&eacute;e ou quelqu&rsquo;un de bilingue. De cette mani&egrave;re, vous apprendrez diff&eacute;remment qu&rsquo;avec un simple manuel : argot, subtilit&eacute;s grammaticales, r&eacute;f&eacute;rences culturelles&hellip; Votre exp&eacute;rience s&rsquo;en trouvera enrichie par des notions moins litt&eacute;raires ou scolaires, plus proches de la r&eacute;alit&eacute; du quotidien. Essayez de rendre ces moments d&rsquo;&eacute;changes les plus fr&eacute;quents possible, surtout s&rsquo;ils ont lieu via des appels t&eacute;l&eacute;phoniques ou vid&eacute;os.Autre point important pour vaincre votre peur de parler une langue &eacute;trang&egrave;re : parlez et pratiquez avec des personnes positives, qui vous encouragent &agrave; progresser. La critique est toujours bonne &agrave; prendre &agrave; condition qu&rsquo;elle soit constructive. &Eacute;vitez de converser avec des interlocuteurs impatients, ou qui jugent n&eacute;gativement votre volont&eacute; d&rsquo;apprendre une langue en particulier. Ce serait le meilleur moyen de vous conforter dans des craintes qui n&rsquo;ont pas lieu d&rsquo;&ecirc;tre.</p>\n<h2>PR&Eacute;PAREZ DES PHRASES &laquo; TYPES &raquo; &Agrave; GLISSER DANS VOS CONVERSATIONS</h2>\n<p>Afin d&rsquo;&ecirc;tre plus serein au moment de discuter dans une langue &eacute;trang&egrave;re, d&rsquo;autant plus si vous &ecirc;tes d&eacute;butant, apprenez des phrases toutes faites &agrave; glisser dans la discussion. Par exemple : &laquo; Je ne comprends pas &raquo;, &laquo; pouvez-vous r&eacute;p&eacute;ter &raquo;, etc. Le but &eacute;tant de pouvoir rebondir rapidement et d&rsquo;utiliser vos expressions sans avoir &agrave; vous creuser la t&ecirc;te pendant de longues minutes.De la m&ecirc;me mani&egrave;re, si vous &ecirc;tes dans un pays &eacute;tranger, pr&eacute;parez &eacute;galement des phrases &laquo; types &raquo;, utiles au quotidien, dans des situations que vous serez amen&eacute; &agrave; rencontrer fr&eacute;quemment. Cela peut &ecirc;tre quelques formules et mots de vocabulaire &agrave; utiliser au supermarch&eacute;, au restaurant, dans un magasin ou pour demander votre direction. L&agrave; encore, l&rsquo;objectif &eacute;tant de simplifier la prise de contact, de lancer un dialogue &agrave; l&rsquo;aide de phrases que vous ma&icirc;trisez et ainsi vaincre votre peur de parler une langue &eacute;trang&egrave;re.</p>\n<h2>VOYAGEZ SEUL &Agrave; L&rsquo;&Eacute;TRANGER</h2>\n<p>Il s&rsquo;agit sans doute du moyen le plus radical mais aussi du plus efficace. Seul dans un pays &eacute;tranger, vous n&rsquo;aurez pas d&rsquo;autres choix que de mettre tous vos doutes de c&ocirc;t&eacute; et de vous jeter &agrave; l&rsquo;eau. Une immersion totale dans une autre culture est la meilleure mani&egrave;re de progresser rapidement en langue &eacute;trang&egrave;re.Pour rendre l&rsquo;exp&eacute;rience la plus ludique possible, n&rsquo;h&eacute;sitez pas &agrave; multiplier les contacts avec les gens sur place. Sortez souvent vous balader dans des lieux publics et entamer la conversation avec des locaux (pour une direction, un renseignement sur un monument, etc.), des vendeurs, des serveurs, ou des personnes de votre tranche d&rsquo;&acirc;ge. Autre moyen de s&rsquo;immerger plus en douceur : loger chez l&rsquo;habitant. Une fa&ccedil;on &ndash; &eacute;conomique &ndash; de pratiquer la langue avec un petit groupe d&rsquo;interlocuteurs que vous finirez par conna&icirc;tre. Id&eacute;al avant de vous lancer dans le grand bain et de vaincre d&eacute;finitivement votre peur de parler une langue &eacute;trang&egrave;re.</p>', '2019-10-23 17:37:00', '2019-10-31 16:34:36'),
 (4, NULL, '', '', '2020-05-08 08:38:23', '2020-05-08 08:38:23');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `menus`
---
 
 CREATE TABLE `menus` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -768,18 +628,8 @@ CREATE TABLE `menus` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `menus`
---
-
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', '2019-10-10 15:19:24', '2019-10-10 15:19:24');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `menu_items`
---
 
 CREATE TABLE `menu_items` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -794,12 +644,8 @@ CREATE TABLE `menu_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `route` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parameters` text COLLATE utf8mb4_unicode_ci
+  `parameters` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `menu_items`
---
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2019-10-10 15:19:24', '2019-10-10 15:19:24', 'voyager.dashboard', NULL),
@@ -836,21 +682,11 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (34, 1, 'Sections', '', '_self', 'voyager-puzzle', NULL, NULL, 37, '2019-10-11 11:34:55', '2019-10-11 11:34:55', 'voyager.sections.index', NULL),
 (35, 1, 'Teams', '', '_self', 'voyager-group', NULL, NULL, 38, '2019-10-24 07:01:39', '2019-10-24 07:01:39', 'voyager.teams.index', NULL);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `migrations`
---
-
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `migrations`
---
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
@@ -905,12 +741,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (52, '2018_10_30_000000_create_tables', 6),
 (53, '2018_11_16_000000_add_meta_fields', 6);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `news_letters`
---
-
 CREATE TABLE `news_letters` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -918,12 +748,6 @@ CREATE TABLE `news_letters` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `order_translations`
---
 
 CREATE TABLE `order_translations` (
   `id` bigint(20) UNSIGNED NOT NULL,
@@ -938,15 +762,11 @@ CREATE TABLE `order_translations` (
   `domain` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `deadline` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `document_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `message` longtext COLLATE utf8mb4_unicode_ci,
+  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `moyen_contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `order_translations`
---
 
 INSERT INTO `order_translations` (`id`, `name`, `firstname`, `email`, `phone`, `source_language`, `target_language`, `type`, `file`, `domain`, `deadline`, `document_type`, `message`, `moyen_contact`, `created_at`, `updated_at`) VALUES
 (1, NULL, NULL, NULL, NULL, 'Source Language', 'Target Language', 'Company', NULL, 'Industry', NULL, NULL, NULL, NULL, '2019-10-25 17:01:58', '2019-10-25 17:01:58'),
@@ -1002,23 +822,11 @@ INSERT INTO `order_translations` (`id`, `name`, `firstname`, `email`, `phone`, `
 (51, 'Moussa', 'Abdalah', 'mssbdhl@icloud.com', '+22891006082', 'Anglais', 'français', 'Particulier', 'order-translations/Moussa_1633515739.pdf', 'Scientifique', 'Délai extra express (2 à 12 heures)', 'Autres', 'Demande de traduction de document', 'Appelez-moi', '2021-10-06 08:22:19', '2021-10-06 08:22:19'),
 (52, 'MichaelMycle', NULL, 'zinabizova@gmail.com', '81978178558', 'Francais', 'Francais', 'Company', 'order-translations/MichaelMycle_1635956268.gif', 'Autres', NULL, NULL, 'секс истории с фото   https://sexs-photo.com/ \r\n \r\n \r\nсекс фото пизда женщина   https://sexs-photo.com/tags/chastnoe-foto/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 секс фото 12 лет  \r\n \r\n \r\n[url=https://forum.campinglanka.com/viewtopic.php?f=2&t=13691]секс в большом сериал онлайн[/url]\r\n[url=http://velochel.ru/php/viewtopic.php?f=28&t=14225]порно зрелую по кругу[/url]\r\n[url=https://cbdprovide.com/boards/topic/21/skachat-porno-pristal]скачать порно пристал[/url]\r\n[url=https://www.checkdomain.de/domains/suchen/?domain_check%5Bdomains%5D=%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8%20%D0%B3%D0%BE%D0%BB%D1%8B%D1%85%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%B5%D0%BA%20%D0%B1%D0%B5%D0%B7%20%20%20https%3A/sexs-photo.com/%20%0D%0A%20%0D%0A%20%0D%0A%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%20%D0%B3%D0%BE%D0%BB%D1%8B%D1%85%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%B5%D0%BA%20%D1%81%D0%BD%D1%8F%D1%82%D1%8B%D0%B5%20%20%20https%3A//sexs-photo.com/tags/bolshie-siski/%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%20%D1%84%D0%BE%D1%82%D0%BE%20%D0%B1%D1%80%D0%B8%D1%82%D1%8B%D0%B5%20%20%0D%0A%20%0D%0A%20%0D%0A%5Burl%3Dhttp%3A//cashcooks.com/2019/08/15/menu-choices-for-vegan-vegetarian/%23comment-36518%5D%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0%20%D0%BC%D1%83%D0%B6%D0%B8%D0%BA%D0%BE%D0%BC%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%BE%20%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%5B/url%5D%0D%0A%5Burl%3Dhttps%3A//christineescudero.com/free-slots/online-slots-real-money-top-casinos-in-canada-to-play-real-slots/%23comment-982%5D%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%20%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%20%D1%80%D0%BE%D0%BB%D0%B8%D0%BA%20%D0%B1%D0%B5%D0%B7%5B/url%5D%0D%0A%5Burl%3Dhttp%3A//www.cyberturista.com/topic-t129382%5D%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%20%D0%B3%D0%BB%D1%83%D0%B1%D0%BE%D0%BA%D0%B8%D0%B9%5B/url%5D%0D%0A%5Burl%3Dhttps%3A//forum.femina.mk/threads/%25D1%2581%25D0%25BA%25D0%25B0%25D1%2587%25D0%25B0%25D1%2582%25D1%258C-%25D0%25BF%25D0%25BE%25D1%2580%25D0%25BD%25D0%25BE-%25D1%2584%25D0%25B8%25D0%25BB%25D1%258C%25D0%25BC%25D1%258B-%25D0%25B2-hd.33294/%5D%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%20%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D1%8B%20%D0%B2%20hd%5B/url%5D%0D%0A%5Burl%3Dhttp%3A//berizza.xyz/showthread.php%3Ftid%3D1248%26pid%3D23894%23pid23894%5D%D0%B3%D0%BE%D0%BB%D1%8B%D0%B5%20%D0%BF%D0%BE%D0%B6%D0%B8%D0%BB%D1%8B%D0%B5%20%D0%B6%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%D1%8B%20%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%5B/url%5D%0D%0A%5Burl%3Dhttps%3A//chatviper.com/viewtopic.php%3Ff%3D2%26t%3D2%26p%3D79%23p79%5D%D0%B6%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%20%D0%B7%D0%B0%2050%20%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%B5%5B/url%5D%0D%0A%5Burl%3Dhttps%3A//artflairshop.com/2021/11/02/hello-world/%23comment-6%5D%D0%B3%D0%BE%D0%BB%D1%8B%D0%B5%20%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B5%20%D0%B6%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%D1%8B%20%D0%B2%20%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B5%5B/url%5D%0D%0A%5Burl%3Dhttps%3A//bertandjolly.com/video-update-number-2/%23comment-25%5D%D1%81%D0%B5%D0%BA%D1%81%202018%5B/url%5D%0D%0A%5Burl%3Dhttps%3A//bestmarbleegypt.com/2021/05/07/the-premium-selection-of-marble/%23comment-3943%5D%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B5%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8%20%D1%80%D0%B0%D0%BA%D0%BE%D0%BC%20%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%5B/url%5D%0D%0A%5Burl%3Dhttps%3A//alkayanco.com/blogs/blog/4%5D%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%B5%20%D0%BF%D0%BE%D1%80%D0%BD%D0%BE%20%D1%81%20%D0%BC%D0%BE%D0%BB%D0%BE%D0%B4%D0%BE%D0%B9%20%D1%81%D0%B5%D1%81%D1%82%D1%80%D0%BE%D0%B9%5B/url%5D%0D%0A%20fe02038%20&domain_check%5Bcategory%5D=top20&domain_check%5Bgenre%5D=live&domain_check%5Bsearch%5D=&domain_check%5Btld%5D=]русское порно зрелых пьяных женщин[/url]\r\n[url=https://bamboolelo.com/showthread.php?tid=220&pid=965#pid965]порно фильмы большие[/url]\r\n[url=https://www.alexsilvamarketing.com/titulo-de-la-publicacion-en-el-blog/#comment-18]порно фото голых пожилых женщин[/url]\r\n[url=http://cashcooks.com/2019/08/15/menu-choices-for-vegan-vegetarian/#comment-36518]девушка мужиком бесплатно порно[/url]\r\n[url=http://www.cyberturista.com/topic-t129382]порно онлайн глубокий[/url]\r\n[url=https://forum.digiplanet.biz/showthread.php?tid=18051&pid=31135#pid31135]бесплатное порно домашнее муж[/url]\r\n[url=https://cbdaledo.com/american-shamans-cbd-routine-for-dogs/#comment-1000050]секс с проституткой[/url]\r\n 74644ff', NULL, '2021-11-03 15:17:48', '2021-11-03 15:17:48');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `password_resets`
---
-
 CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `permissions`
---
 
 CREATE TABLE `permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
@@ -1027,10 +835,6 @@ CREATE TABLE `permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `permissions`
---
 
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
 (1, 'browse_admin', NULL, '2019-10-10 15:19:26', '2019-10-10 15:19:26'),
@@ -1170,20 +974,10 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (145, 'add_teams', 'teams', '2019-10-24 07:01:39', '2019-10-24 07:01:39'),
 (146, 'delete_teams', 'teams', '2019-10-24 07:01:39', '2019-10-24 07:01:39');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `permission_role`
---
-
 CREATE TABLE `permission_role` (
   `permission_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `permission_role`
---
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
@@ -1424,72 +1218,42 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (146, 1),
 (146, 3);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `posts`
---
-
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `vue` bigint(20) DEFAULT NULL,
   `like` bigint(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `posts`
---
-
 INSERT INTO `posts` (`id`, `image`, `title`, `description`, `vue`, `like`, `created_at`, `updated_at`) VALUES
 (2, 'posts\\October2019\\dbtRrNYalzw3S4McIMjN.jpg', 'Les différences entre locuteurs natifs et philologues', '<p>D&egrave;s que l&rsquo;on travaille dans le domaine des langues, il y a des questions qui reviennent souvent. Parmi celles qu&rsquo;on me pose le plus souvent : quelle est la diff&eacute;rence entre un locuteur natif et une personne totalement bilingue ?</p>\n<p>D&eacute;j&agrave;, permettez-moi de poser un fait important : personne ne semble d&rsquo;accord sur la question, m&ecirc;me les scientifiques. Mon conseil, &eacute;vitez donc de lancer le sujet dans un repas de famille, encore moins avec des universitaires sp&eacute;cialistes des langues. Je me fie donc &agrave; l&rsquo;exp&eacute;rience. Et toutes les observations que j&rsquo;ai pu faire dans ma vie sur le sujet vont exactement &agrave; la m&ecirc;me conclusion. La voici.</p>\n<p>Il subsiste une diff&eacute;rence irr&eacute;ductible qu&rsquo;aucun cours de langue, aucun s&eacute;jour d&rsquo;immersion, ni aucune petite amie &eacute;trang&egrave;re ne pourront jamais effacer. Le natif est dot&eacute; d&rsquo;un bonus, un superpouvoir tr&egrave;s discret : celui de percevoir des subtilit&eacute;s &agrave; c&ocirc;t&eacute; desquelles un non natif peut facilement passer, m&ecirc;me s&rsquo;il est bilingue.</p>\n<p>En voici 5, qui reviennent souvent.</p>\n<h2><strong>1. Le mot qui pourrait coincer</strong></h2>\n<p>Il faut une connaissance redoutable d&rsquo;une langue pour &ecirc;tre capable de distinguer les doubles-sens que pourrait avoir un mot donn&eacute; dans un contexte pr&eacute;cis. Ou &agrave; l&rsquo;inverse pour &eacute;tablir qu&rsquo;aucun double-sens n&rsquo;est possible.</p>\n<p>Je parle ici des associations de mots qui cr&eacute;ent des connotations non ma&icirc;tris&eacute;es et bien souvent non souhaitables : sexuelles, racistes, blessantes, saugrenues, etc..</p>\n<p>Prenons le fameux &ldquo;Ich bin ein Berliner&rdquo; de Kennedy. Il y a d&rsquo;abord eu un grand d&eacute;bat dans les m&eacute;dias anglophones (non natifs donc), certains sugg&eacute;rant que Kennedy avait dit &ldquo;Je suis un beignet&rsquo; plut&ocirc;t que &ldquo;Je suis un Berlinois&rdquo;.</p>\n<p>En fait la forme qu&rsquo;il a utilis&eacute;e est correcte, tout autant que celle qu&rsquo;on lui a reproch&eacute; de ne pas employer &ldquo;Ich bin Berliner&rdquo;.</p>\n<p>Elle est m&ecirc;me plus adapt&eacute;e, car il y a une subtilit&eacute; que les natifs connaissent, &agrave; la diff&eacute;rence des m&eacute;dias anglais (m&ecirc;me bien vers&eacute;s dans les langues &eacute;trang&egrave;res, comme le New York Times) : &laquo; Ich bin Berliner &raquo; est une phrase plus fr&eacute;quente, mais fonctionne moins bien au sens figur&eacute;, elle aurait donn&eacute; l&rsquo;impression que Kennedy se pr&eacute;sentait comme &eacute;tant v&eacute;ritablement originaire de Berlin. Seul un natif peut donc d&eacute;clarer rapidement qu&rsquo;il a eu raison d&rsquo;employer la phrase qu&rsquo;il a choisie :)</p>\n<h2><strong>2. Le parler &ldquo;non musical&rdquo;</strong></h2>\n<p>Les locuteurs natifs sont les mieux plac&eacute;s pour conna&icirc;tre la fameuse &laquo; musique d&rsquo;une langue &raquo; : ses respirations, les interjections de type &ldquo;hum&rdquo; plac&eacute;es au bon moment&hellip; Bref, autant de petites choses qui donnent &agrave; la langue sa texture r&eacute;elle. C&rsquo;est l&rsquo;un des &eacute;l&eacute;ments les plus difficiles &agrave; acqu&eacute;rir quand on apprend une langue, et des &ldquo;erreurs&rdquo; &agrave; ce niveau sont particuli&egrave;rement dures &agrave; d&eacute;tecter.</p>\n<h2><strong>3. Les &eacute;l&eacute;ments trop h&eacute;t&eacute;rog&egrave;nes</strong></h2>\n<p>C&rsquo;est aussi l&rsquo;homog&eacute;n&eacute;it&eacute; de la langue qui va faire sa musicalit&eacute;. Si m&ecirc;me deux natifs n&rsquo;auront jamais exactement le m&ecirc;me parler (il y a forc&eacute;ment une dimension idiosyncrasique), si chacun parle une langue qu&rsquo;il s&rsquo;est appropri&eacute;e, avec ses individualit&eacute;s qui rassemblent des &eacute;l&eacute;ments venant de lieux divers, reste que des incoh&eacute;rences trop grandes peuvent &ecirc;tre per&ccedil;ues par un natif chez un non natif.</p>\n<p>Un m&eacute;lange d&rsquo;expressions londoniennes avec des choses entendues dans les s&eacute;ries US, par exemple, peut venir cr&eacute;er une &ldquo;friction&rdquo;, quasi indistinguable pour les autres.</p>\n<h2><strong>4. Des trous dans la raquette culturelle</strong></h2>\n<p>&Ccedil;a n&rsquo;a l&rsquo;air de rien, le contexte culturel. On se dit souvent bien h&acirc;tivement que seule la qualit&eacute; de la langue compte.</p>\n<p>Or pour &eacute;changer et se faire comprendre, il n&rsquo;y a pas que la base grammaticale et s&eacute;mantique d&rsquo;un message. Il y a tout un contexte culturel corr&eacute;l&eacute; &agrave; ce que l&rsquo;on dit et qui peut en modifier le sens ou l&rsquo;interpr&eacute;tation.</p>\n<h2><strong>5. Les r&eacute;gionalismes ou cet accent improbable</strong></h2>\n<p>Quand on apprend une langue, on le fait toujours dans un contexte pr&eacute;cis. Au passage, on va embarquer avec soi des bribes de ce contexte : des usages locaux, un accent r&eacute;gional sp&eacute;cifique, une prononciation. A grande &eacute;chelle, cela va donner par exemple les diff&eacute;rences entre un anglais am&eacute;ricain et un anglais britannique ou encore australien ou indien. A petite &eacute;chelle, entre Oxford et Birmingham, entre un British English classe moyenne et un British English d&rsquo;aristocrate. Naturellement, on v&eacute;hicule des informations diff&eacute;rentes selon la langue qu&rsquo;on parle : telle ou telle origine, telle ou telle classe sociale, telle ou telle &eacute;ducation, culture, etc.</p>\n<p>Or un natif est souvent bien mieux &eacute;quip&eacute; pour percevoir ces informations dans une communication orale du simple fait qu&rsquo;il distingue mieux ce qui les constitue (l&rsquo;accent, l&rsquo;usage, la prononciation, etc.).</p>', 124, 2556, '2019-10-23 18:25:00', '2019-10-31 16:29:32'),
 (4, 'posts\\October2019\\ck9faTcOG9v4wSvclM1o.jpg', '5 Façons qui vont t\'aider à vite parler Anglais', '<p>Tous les moyens sont bons pour apprendre l&rsquo;anglais, mais cela d&eacute;pend de plusieurs facteurs. L&rsquo;anglais est une langue internationale, c&rsquo;est pour cela qu&rsquo;il est important de la ma&icirc;triser. En plus de cela, il n&rsquo;existe pas de miracle pour ma&icirc;triser cette langue ; il suffit juste de suivre les m&eacute;thodes ci-apr&egrave;s et vous verrez que vous allez progresser petit &agrave; petit. En outre, vous avez &eacute;galement le choix d&rsquo;apprendre l\'anglais &agrave; travers des cours d\'immersion qui permettent une progression rapide. Pour que vous puissiez ma&icirc;triser parfaitement et avec plaisir la langue anglaise, orale et &eacute;crite, suivez les points essentiels ci-apr&egrave;s.</p>\n<h2><strong>S\'habituer aux sons</strong></h2>\n<p>En vous impr&eacute;gnant de la langue anglaise, vous aurez toutes les chances devant vous. Pour s&rsquo;y faire, entourez vous de cette langue. Votre mission consiste &agrave; faire de petits choix au quotidien, tel que d&rsquo;&eacute;couter de la musique anglophone, privil&eacute;gier les &eacute;missions de de t&eacute;l&eacute;vision en version anglaise o&ugrave; &eacute;couter une station de radio anglophone. Ensuite, lisez des livres en anglais &agrave; haute voix pour vous permettre d&rsquo;avoir une habitude &agrave; entendre des vocabulaires et pour avoir une bonne &eacute;locution.</p>\n<h2><strong>Faire des pratiques pour apprendre les r&egrave;gles grammaticales et les vocabulaires</strong></h2>\n<p>L&rsquo;autre alternative pour apprendre l&rsquo;anglais est d&rsquo;avoir des conversations quotidiennes avec des personnes qui parle couramment cette langue. Avec la pratique, vous aurez la chance d&rsquo;apprendre beaucoup plus de vocabulaires et de discuter ais&eacute;ment avec des anglophones. En outre, vous devriez aussi utiliser un cahier pour prendre des notes sur les nouveaux mots. Il est aussi pr&eacute;f&eacute;rable que vous ayez un livre de grammaire et un dictionnaire pour vous aider &agrave; chercher les mots que vous ne comprenez pas.</p>\n<h2><strong>Regarder des cha&icirc;nes youtube</strong></h2>\n<p>Aujourd&rsquo;hui, nombreuses sont les cha&icirc;nes sur YouTube qui proposent des cours en mati&egrave;re de grammaire, phon&eacute;tique et de vocabulaire. Ce sera plus facile pour vous de choisir des th&egrave;mes correspondant &agrave; vos domaines. Non seulement cela va vous aider &agrave; bien parler, mais aussi &agrave; vous aider &agrave; ma&icirc;triser l&rsquo;&eacute;crit.</p>\n<h2><strong>Trouver des amis polyglottes</strong></h2>\n<p>Une des solutions les plus rapides pour apprendre &agrave; parler couramment l&rsquo;anglais est de fr&eacute;quenter des amis polyglottes, c&rsquo;est-&agrave;-dire, des personnes qui parlent en m&ecirc;me temps plusieurs langues. Avec eux, vous ne serez pas g&ecirc;n&eacute; de poser des questions. Parce que tout comme vous, ce sont aussi des personnes passionn&eacute;es du monde de la langue. Ainsi, ces derni&egrave;res peuvent facilement vous corriger et vous donner des conseils et peut-&ecirc;tre m&ecirc;me des cours d&rsquo;appui. De plus, vous pourrez aussi fr&eacute;quenter des amis anglophones, comme &ccedil;a, vous n&rsquo;aurez pas besoin d&rsquo;effectuer un voyage linguistique pour mieux ma&icirc;triser l&rsquo;anglais.</p>\n<h2><strong>Suivre des formations</strong></h2>\n<p>Suivre une ou diff&eacute;rentes formations va vous encadrera dans votre apprentissage, vous &eacute;veillera et vous donnera l&rsquo;envie de se focaliser un peu plus sur la langue anglaise et peut &ecirc;tre aussi sur d&rsquo;autres langues &eacute;trang&egrave;res. Par ailleurs, si vous optez pour des cours de groupe, cela va vous donnera beaucoup d&rsquo;enthousiasme et permettra d&rsquo;acc&eacute;l&eacute;rer votre apprentissage en plus de faire de vous faire un r&eacute;seau de personne avec qui pratiquer.</p>\n<p>&nbsp;</p>\n<p>Il existe plusieurs moyens d&rsquo;apprendre l&rsquo;anglais sans avoir &agrave; voyager et les astuces ci-dessus ne sont que des id&eacute;es. En effet ; il y on a encore des centaines alternatives pour vous aider &agrave; apprendre l&rsquo;anglais. Si vous &ecirc;tes &eacute;tudiant, vous pourrez par exemple fr&eacute;quenter des caf&eacute;s de langue pour rencontrer des personnes ayant le m&ecirc;me but que vous ou rencontrer des gens qui partagent leur savoir-faire et leur connaissance. Le combat est dur, alors ne vous d&eacute;moralisez pas si facilement. En &eacute;tant d&eacute;butant, ne pensez pas que vous allez tout de suite parler comme des natifs. Ce ne serait pas possible qu&rsquo;apr&egrave;s avoir effectu&eacute; plusieurs ann&eacute;es de pratique.&nbsp;</p>', NULL, NULL, '2019-10-25 23:04:00', '2019-10-31 16:33:07');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `prices`
---
-
 CREATE TABLE `prices` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `prices`
---
 
 INSERT INTO `prices` (`id`, `title`, `price`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Programme relax  <br> 2 jrs / semaine', '10000', '', '2019-10-23 16:11:00', '2019-10-24 12:36:06'),
 (2, 'Programme normal <br> 4 jrs / semaine', '15000', '', '2019-10-23 16:12:00', '2019-10-24 12:36:50'),
 (3, 'Programme accéléré <br> 6 jrs / semaine', '25000', '', '2019-10-23 16:12:00', '2019-10-24 12:37:46');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `p_items`
---
-
 CREATE TABLE `p_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `p_items`
---
 
 INSERT INTO `p_items` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (8, 'Niveau 1', '', '2019-10-24 12:42:58', '2019-10-24 12:42:58'),
@@ -1499,12 +1263,6 @@ INSERT INTO `p_items` (`id`, `title`, `description`, `created_at`, `updated_at`)
 (12, 'Intermediate', '', '2019-10-24 12:44:42', '2019-10-24 12:44:42'),
 (13, 'TOEFL / IELTS (Prix variable)', '', '2019-10-24 12:46:00', '2019-10-24 12:47:20');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `p_item_price`
---
-
 CREATE TABLE `p_item_price` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `p_item_id` bigint(20) UNSIGNED NOT NULL,
@@ -1512,10 +1270,6 @@ CREATE TABLE `p_item_price` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `p_item_price`
---
 
 INSERT INTO `p_item_price` (`id`, `p_item_id`, `price_id`, `created_at`, `updated_at`) VALUES
 (18, 8, 1, NULL, NULL),
@@ -1537,12 +1291,6 @@ INSERT INTO `p_item_price` (`id`, `p_item_id`, `price_id`, `created_at`, `update
 (34, 12, 3, NULL, NULL),
 (35, 13, 3, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `roles`
---
-
 CREATE TABLE `roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1551,59 +1299,35 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `roles`
---
-
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Administrator', '2019-10-10 15:19:25', '2019-10-10 15:19:25'),
 (2, 'user', 'Normal User', '2019-10-10 15:19:25', '2019-10-10 15:19:25'),
 (3, 'modo', 'Moderateur', '2019-10-24 09:57:47', '2019-10-24 09:57:47');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `sections`
---
-
 CREATE TABLE `sections` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `sections`
---
-
 INSERT INTO `sections` (`id`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'sections/October2019/NWpoSFtu8lWxkuYE5MbD.jpeg', 'Voulez-vous étudier ou travailler à l\'étranger ?', '<p>Notre partenaire ODZUNA CONSULTING vous aide dans l\'obtention de bourse pour les &eacute;tudes en Chypres.</p>', '2019-10-18 18:17:00', '2019-10-28 15:22:58'),
+(1, 'sections/May2022/4YDUoVPYVlE0Wie6wfAG.jpeg', 'Voulez-vous vous former en Anglais ?', '<p>Centre de formation d\'anglais.</p>\n<p>Ecole bilingue au togo.</p>\n<p>Cours de toefl togo.</p>\n<p>Cours anglais.</p>\n<p>isla togo.</p>\n<p>Meilleur centre de formation en anglais.</p>\n<p>Ecole de langue au togo.</p>', '2019-10-18 18:17:00', '2022-05-20 14:43:49'),
 (2, 'sections/October2019/tNvUz7i2IgaptvbtHpiD.jpg', 'Commencer par parler l\'Anglais comme des professionnels', '<p>Inscrivez-vous &agrave; notre cours et booster votre connaissance en Anglais ou Fran&ccedil;ais</p>', '2019-10-22 14:46:00', '2019-10-28 16:10:56'),
 (3, 'sections/October2019/7EUHhrIdx8Q0KgX6P1gQ.jpg', 'Ce que vous devez savoir sur nous', '<p>Pour que nous puissions tenir notre promesse d\'un service exceptionnel, chaque poste est attribu&eacute; &agrave; des linguistes sp&eacute;cialis&eacute;s dans diff&eacute;rentes langues et travaillant pour notre entreprise &agrave; plein temps.</p>', '2019-10-23 15:51:00', '2019-10-28 18:12:15'),
-(4, 'sections\\October2019\\lyy7tE7rmkt8vurPIiar.jpg', 'Transforming the World of Professional Translation', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam, quis nostrud exercitatio.</p>', '2019-10-23 16:45:37', '2019-10-23 16:45:37');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `services`
---
+(4, 'sections\\October2019\\lyy7tE7rmkt8vurPIiar.jpg', 'Transformer le monde de la traduction professionnelle', '<p>&eacute;cole de formation en anglais au togo</p>\n<p>cours de toefl togo</p>\n<p>centre de formation d\'anglais</p>\n<p>meilleur centre de formation en anglais</p>\n<p>centre culturel americain au togo</p>\n<p>cours anglais - ambassade am&eacute;ricaine</p>\n<p>english language center</p>\n<p>cours d\' anglais a lom&eacute;</p>\n<p>cours d\' anglais a Adigogom&eacute;</p>\n<p>cours d\' anglais a baguida</p>', '2019-10-23 16:45:00', '2022-05-20 13:29:42');
 
 CREATE TABLE `services` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `services`
---
 
 INSERT INTO `services` (`id`, `icon`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'icon-analytics_doc', NULL, 'Traduction de documents', '', '2019-10-18 17:16:00', '2019-10-24 11:21:26'),
@@ -1611,26 +1335,16 @@ INSERT INTO `services` (`id`, `icon`, `image`, `title`, `description`, `created_
 (3, 'icon-global', NULL, 'Cours Anglais / Français', '', '2019-10-18 17:20:00', '2019-10-24 11:25:35'),
 (4, 'icon-analytics_mob', NULL, 'Préparation au TOEFL / IELTS', '', '2019-10-18 17:20:00', '2019-10-24 11:26:42');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `settings`
---
-
 CREATE TABLE `settings` (
   `id` int(10) UNSIGNED NOT NULL,
   `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci,
-  `details` text COLLATE utf8mb4_unicode_ci,
+  `value` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `order` int(11) NOT NULL DEFAULT '1',
+  `order` int(11) NOT NULL DEFAULT 1,
   `group` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `settings`
---
 
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
 (1, 'site.title', 'Site Title', 'Site Title', '', 'text', 1, 'Site'),
@@ -1644,51 +1358,31 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
 (10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', NULL, '', 'text', 1, 'Admin');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `slides`
---
-
 CREATE TABLE `slides` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `texte1` text COLLATE utf8mb4_unicode_ci,
-  `texte2` text COLLATE utf8mb4_unicode_ci,
-  `texte3` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `texte1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texte2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texte3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `btn_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `btn_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `slides`
---
-
 INSERT INTO `slides` (`id`, `image`, `texte1`, `texte2`, `texte3`, `description`, `btn_text`, `btn_link`, `created_at`, `updated_at`) VALUES
 (1, 'slides/October2019/WjOftJaNelJaMuuDpRFX.jpg', 'Centre de formation', 'Anglais / Français', 'Cours du jour / soir\n', '', 'Contactez-nous', NULL, '2019-10-17 17:31:00', '2019-10-28 15:49:57'),
 (2, 'slides/October2019/jQI2EZVDo0L4zolENkMX.jpg', 'Agence de traduction', 'Et d\'interprétation ', '', '', 'Traduisez maintenant', NULL, '2019-10-17 17:42:00', '2019-10-28 15:45:08'),
 (3, 'slides/October2019/tbYFTceU3lV3ohtRqqap.jpg', 'Améliorer votre Anglais ou Français ?', 'Pas de soucis, ne trainez plus', 'Venez à nous...', '', 'Contactez-nous', NULL, '2019-10-24 10:31:00', '2019-10-28 16:08:08');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `s_items`
---
-
 CREATE TABLE `s_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `s_items`
---
 
 INSERT INTO `s_items` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (8, 'certification de documents', '', '2019-10-24 11:31:00', '2019-10-24 11:52:26'),
@@ -1696,19 +1390,13 @@ INSERT INTO `s_items` (`id`, `title`, `description`, `created_at`, `updated_at`)
 (10, 'Traduction de diplômes', '', '2019-10-24 11:32:00', '2019-10-24 11:35:08'),
 (12, 'traductions de documents juridiques', '', '2019-10-24 11:33:00', '2019-10-24 11:34:26'),
 (13, 'Interprétation consécutive', '', '2019-10-24 11:54:00', '2019-10-24 11:54:00'),
-(14, 'Interprétation de liaison', '', '2019-10-24 11:54:35', '2019-10-24 11:54:35'),
-(15, 'Interprétation de conférence', '', '2019-10-24 11:55:24', '2019-10-24 11:55:24'),
+(14, 'Interprétation de liaison', '', '2019-10-24 11:54:00', '2022-05-20 13:44:50'),
+(15, 'Interprétation de conférence', '', '2019-10-24 11:55:00', '2022-05-20 13:44:31'),
 (16, 'Lire', '', '2019-10-24 11:57:00', '2019-10-24 12:02:59'),
 (17, 'Ecrire', '', '2019-10-24 11:58:00', '2019-10-24 12:03:20'),
 (18, 'Parler', '', '2019-10-24 12:03:00', '2019-10-24 12:04:27'),
-(19, 'Comprendre', '', '2019-10-24 12:04:08', '2019-10-24 12:04:08'),
+(19, 'Comprendre', '', '2019-10-24 12:04:00', '2022-05-20 13:36:52'),
 (20, 'Cours préparatoires', '', '2019-10-24 12:05:00', '2019-10-24 12:05:52');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `s_item_service`
---
 
 CREATE TABLE `s_item_service` (
   `id` bigint(20) UNSIGNED NOT NULL,
@@ -1717,10 +1405,6 @@ CREATE TABLE `s_item_service` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `s_item_service`
---
 
 INSERT INTO `s_item_service` (`id`, `s_item_id`, `service_id`, `created_at`, `updated_at`) VALUES
 (18, 12, 1, NULL, NULL),
@@ -1736,18 +1420,12 @@ INSERT INTO `s_item_service` (`id`, `s_item_id`, `service_id`, `created_at`, `up
 (29, 18, 3, NULL, NULL),
 (30, 20, 4, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `teams`
---
-
 CREATE TABLE `teams` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `instagram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1756,35 +1434,21 @@ CREATE TABLE `teams` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `teams`
---
-
 INSERT INTO `teams` (`id`, `image`, `name`, `title`, `description`, `facebook`, `twitter`, `instagram`, `linkedin`, `created_at`, `updated_at`) VALUES
 (1, 'teams/May2020/XLZhAo4G0GsTeNzyCSy8.jpg', 'moise LAKO', 'CEO & FOUNDER', 'Basé au Togo, notre mission est de fournir des cours de Langues l\' Interprètation et traductions de haute qualité à nos clients. Nous vous préparons au TOEFL et au IELTS.', NULL, NULL, NULL, NULL, '2019-10-24 07:07:00', '2020-05-07 10:53:04'),
 (2, 'teams/May2020/YjpKjYk4gZJfeGjvDkte.jpg', 'reine Atchaan', 'OPERATIONS MANAGER', 'Nos clients sont notre priorité principale et c\'est pourquoi notre équipe comprend leurs différents besoins.', NULL, NULL, NULL, NULL, '2019-10-24 07:09:00', '2020-05-07 10:50:43'),
 (3, 'teams/May2020/SQj2QGBKI7OZkZzBvPbG.jpg', 'kami KODJO', 'MANAGER', 'Vous voulez améliorer votre Anglais dans un centre de formation? vous voulez traduire vos documents ou encore recherchez vous des Interprètes de conférences?\n   Vous pouvez compter sur nous.', 'davyslanguages', NULL, NULL, 'kodjokami', '2019-10-24 07:10:00', '2020-05-07 10:02:49');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `telescope_entries`
---
 
 CREATE TABLE `telescope_entries` (
   `sequence` bigint(20) UNSIGNED NOT NULL,
   `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch_id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `family_hash` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `should_display_on_index` tinyint(1) NOT NULL DEFAULT '1',
+  `should_display_on_index` tinyint(1) NOT NULL DEFAULT 1,
   `type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `telescope_entries`
---
 
 INSERT INTO `telescope_entries` (`sequence`, `uuid`, `batch_id`, `family_hash`, `should_display_on_index`, `type`, `content`, `created_at`) VALUES
 (1, '8efb0eac-02d6-4ed0-902b-2d17ae34437e', '8efb0eac-05fb-4400-b6a1-b22135af9ad5', '1769992bfe366e3ff43685f6f77851bb', 0, 'exception', '{\"class\":\"Symfony\\\\Component\\\\Debug\\\\Exception\\\\FatalThrowableError\",\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/app\\/Http\\/Controllers\\/ContactController.php\",\"line\":44,\"message\":\"Class \'App\\\\Http\\\\Controllers\\\\Mail\' not found\",\"trace\":[{\"function\":\"store\",\"class\":\"App\\\\Http\\\\Controllers\\\\ContactController\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Controller.php\",\"line\":54,\"function\":\"call_user_func_array\",\"args\":[[{},\"store\"],[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/ControllerDispatcher.php\",\"line\":45,\"function\":\"callAction\",\"class\":\"Illuminate\\\\Routing\\\\Controller\",\"type\":\"->\",\"args\":[\"store\",[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Route.php\",\"line\":219,\"function\":\"dispatch\",\"class\":\"Illuminate\\\\Routing\\\\ControllerDispatcher\",\"type\":\"->\",\"args\":[{\"uri\":\"fr\\/contacts\",\"methods\":[\"POST\"],\"action\":{\"middleware\":[\"web\"],\"as\":\"contacts.store\",\"uses\":\"App\\\\Http\\\\Controllers\\\\ContactController@store\",\"controller\":\"App\\\\Http\\\\Controllers\\\\ContactController@store\",\"namespace\":\"App\\\\Http\\\\Controllers\",\"prefix\":\"\\/fr\",\"where\":[]},\"isFallback\":false,\"controller\":{},\"defaults\":[],\"wheres\":[],\"parameters\":[],\"parameterNames\":[],\"computedMiddleware\":[\"web\"],\"compiled\":{}},{},\"store\"]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Route.php\",\"line\":176,\"function\":\"runController\",\"class\":\"Illuminate\\\\Routing\\\\Route\",\"type\":\"->\",\"args\":[]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":680,\"function\":\"run\",\"class\":\"Illuminate\\\\Routing\\\\Route\",\"type\":\"->\",\"args\":[]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":130,\"function\":\"Illuminate\\\\Routing\\\\{closure}\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Middleware\\/SubstituteBindings.php\",\"line\":41,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/VerifyCsrfToken.php\",\"line\":75,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\VerifyCsrfToken\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/View\\/Middleware\\/ShareErrorsFromSession.php\",\"line\":49,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\View\\\\Middleware\\\\ShareErrorsFromSession\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Session\\/Middleware\\/StartSession.php\",\"line\":56,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Session\\\\Middleware\\\\StartSession\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Cookie\\/Middleware\\/AddQueuedCookiesToResponse.php\",\"line\":37,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Cookie\\\\Middleware\\\\AddQueuedCookiesToResponse\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Cookie\\/Middleware\\/EncryptCookies.php\",\"line\":66,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Cookie\\\\Middleware\\\\EncryptCookies\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":105,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":682,\"function\":\"then\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":657,\"function\":\"runRouteWithinStack\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"uri\":\"fr\\/contacts\",\"methods\":[\"POST\"],\"action\":{\"middleware\":[\"web\"],\"as\":\"contacts.store\",\"uses\":\"App\\\\Http\\\\Controllers\\\\ContactController@store\",\"controller\":\"App\\\\Http\\\\Controllers\\\\ContactController@store\",\"namespace\":\"App\\\\Http\\\\Controllers\",\"prefix\":\"\\/fr\",\"where\":[]},\"isFallback\":false,\"controller\":{},\"defaults\":[],\"wheres\":[],\"parameters\":[],\"parameterNames\":[],\"computedMiddleware\":[\"web\"],\"compiled\":{}},{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":623,\"function\":\"runRoute\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{\"uri\":\"fr\\/contacts\",\"methods\":[\"POST\"],\"action\":{\"middleware\":[\"web\"],\"as\":\"contacts.store\",\"uses\":\"App\\\\Http\\\\Controllers\\\\ContactController@store\",\"controller\":\"App\\\\Http\\\\Controllers\\\\ContactController@store\",\"namespace\":\"App\\\\Http\\\\Controllers\",\"prefix\":\"\\/fr\",\"where\":[]},\"isFallback\":false,\"controller\":{},\"defaults\":[],\"wheres\":[],\"parameters\":[],\"parameterNames\":[],\"computedMiddleware\":[\"web\"],\"compiled\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":612,\"function\":\"dispatchToRoute\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Kernel.php\",\"line\":176,\"function\":\"dispatch\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":130,\"function\":\"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/TransformsRequest.php\",\"line\":21,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/TransformsRequest.php\",\"line\":21,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/ValidatePostSize.php\",\"line\":27,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/CheckForMaintenanceMode.php\",\"line\":62,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/fideloper\\/proxy\\/src\\/TrustProxies.php\",\"line\":57,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Fideloper\\\\Proxy\\\\TrustProxies\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":105,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Kernel.php\",\"line\":151,\"function\":\"then\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Kernel.php\",\"line\":116,\"function\":\"sendRequestThroughRouter\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]},{\"file\":\"\\/home\\/davyslan\\/public_html\\/index.php\",\"line\":55,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{}}]}],\"line_preview\":{\"35\":\"     * @param  \\\\Illuminate\\\\Http\\\\Request  $request\",\"36\":\"     * @return \\\\Illuminate\\\\Http\\\\Response\",\"37\":\"     *\\/\",\"38\":\"    public function store(Request $request)\",\"39\":\"    {\",\"40\":\"        $contact = $request->all();\",\"41\":\"        Contact::create($request->all());\",\"42\":\"        if (Entreprise::all()->isNotEmpty()) {\",\"43\":\"            if(Entreprise::all()->last()->mail1){\",\"44\":\"                Mail::to([\'email\' => Entreprise::all()->last()->mail1])->send(new ContactDavys($request->all()));\",\"45\":\"            }        \",\"46\":\"\",\"47\":\"            if(Entreprise::all()->last()->mail2){\",\"48\":\"                Mail::to([\'email\' => Entreprise::all()->last()->mail2])->send(new ContactDavys($request->all()));\",\"49\":\"            }\",\"50\":\"        }\",\"51\":\"               \",\"52\":\"        Alert::success(\'Succes\', \'Demande envoy\\u00e9 avec succ\\u00e8s !\');\",\"53\":\"        \",\"54\":\"        return redirect()->route(\'contacts.index\');\"},\"hostname\":\"lejack4.alls-heberg.fr\",\"occurrences\":1}', '2019-10-26 11:29:00'),
@@ -1812,84 +1476,56 @@ INSERT INTO `telescope_entries` (`sequence`, `uuid`, `batch_id`, `family_hash`, 
 (19, '8efb26dc-ea3f-4252-b4e7-c2e04f98dbb0', '8efb26dd-d65d-4a80-bedb-cf52a90c1b7b', '134b29ef62d5e5156052ed334cec8810', 1, 'exception', '{\"class\":\"ErrorException\",\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/app\\/Mail\\/ContactDavys.php\",\"line\":28,\"message\":\"Undefined index: message\",\"trace\":[{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/app\\/Mail\\/ContactDavys.php\",\"line\":28,\"function\":\"handleError\",\"class\":\"Illuminate\\\\Foundation\\\\Bootstrap\\\\HandleExceptions\",\"type\":\"->\",\"args\":[8,\"Undefined index: message\",\"\\/home\\/davyslan\\/davyslanguages\\/app\\/Mail\\/ContactDavys.php\",28,{\"client\":{\"_token\":\"6kb1e7HO2WtfCziO2DxF2Rn4uQ3icIdfTLa8wn01\",\"deadline\":\"Date limite expresse: (24 heures)\",\"document_type\":\"Documents financiers\",\"domain\":\"Scientifique\",\"source_language\":\"fran\\u00e7ais\",\"target_language\":\"Anglais\",\"name\":\"grand\",\"firstname\":\"do\",\"type\":\"Entreprise\",\"phone\":\"3265\",\"email\":\"admin@test.com\",\"moyen_contact\":\"Non, contactez-moi par e-mail\",\"file\":{}}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/app\\/Http\\/Controllers\\/OrderTranslationController.php\",\"line\":64,\"function\":\"__construct\",\"class\":\"App\\\\Mail\\\\ContactDavys\",\"type\":\"->\",\"args\":[{\"_token\":\"6kb1e7HO2WtfCziO2DxF2Rn4uQ3icIdfTLa8wn01\",\"deadline\":\"Date limite expresse: (24 heures)\",\"document_type\":\"Documents financiers\",\"domain\":\"Scientifique\",\"source_language\":\"fran\\u00e7ais\",\"target_language\":\"Anglais\",\"name\":\"grand\",\"firstname\":\"do\",\"type\":\"Entreprise\",\"phone\":\"3265\",\"email\":\"admin@test.com\",\"moyen_contact\":\"Non, contactez-moi par e-mail\",\"file\":{}}]},{\"function\":\"store\",\"class\":\"App\\\\Http\\\\Controllers\\\\OrderTranslationController\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Controller.php\",\"line\":54,\"function\":\"call_user_func_array\",\"args\":[[{},\"store\"],[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/ControllerDispatcher.php\",\"line\":45,\"function\":\"callAction\",\"class\":\"Illuminate\\\\Routing\\\\Controller\",\"type\":\"->\",\"args\":[\"store\",[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Route.php\",\"line\":219,\"function\":\"dispatch\",\"class\":\"Illuminate\\\\Routing\\\\ControllerDispatcher\",\"type\":\"->\",\"args\":[{\"uri\":\"fr\\/order-translations\",\"methods\":[\"POST\"],\"action\":{\"middleware\":[\"web\"],\"as\":\"order-translations.store\",\"uses\":\"App\\\\Http\\\\Controllers\\\\OrderTranslationController@store\",\"controller\":\"App\\\\Http\\\\Controllers\\\\OrderTranslationController@store\",\"namespace\":\"App\\\\Http\\\\Controllers\",\"prefix\":\"\\/fr\",\"where\":[]},\"isFallback\":false,\"controller\":{},\"defaults\":[],\"wheres\":[],\"parameters\":[],\"parameterNames\":[],\"computedMiddleware\":[\"web\"],\"compiled\":{}},{},\"store\"]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Route.php\",\"line\":176,\"function\":\"runController\",\"class\":\"Illuminate\\\\Routing\\\\Route\",\"type\":\"->\",\"args\":[]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":680,\"function\":\"run\",\"class\":\"Illuminate\\\\Routing\\\\Route\",\"type\":\"->\",\"args\":[]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":130,\"function\":\"Illuminate\\\\Routing\\\\{closure}\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Middleware\\/SubstituteBindings.php\",\"line\":41,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/VerifyCsrfToken.php\",\"line\":75,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\VerifyCsrfToken\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/View\\/Middleware\\/ShareErrorsFromSession.php\",\"line\":49,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\View\\\\Middleware\\\\ShareErrorsFromSession\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Session\\/Middleware\\/StartSession.php\",\"line\":56,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Session\\\\Middleware\\\\StartSession\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Cookie\\/Middleware\\/AddQueuedCookiesToResponse.php\",\"line\":37,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Cookie\\\\Middleware\\\\AddQueuedCookiesToResponse\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Cookie\\/Middleware\\/EncryptCookies.php\",\"line\":66,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Cookie\\\\Middleware\\\\EncryptCookies\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":105,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":682,\"function\":\"then\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":657,\"function\":\"runRouteWithinStack\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"uri\":\"fr\\/order-translations\",\"methods\":[\"POST\"],\"action\":{\"middleware\":[\"web\"],\"as\":\"order-translations.store\",\"uses\":\"App\\\\Http\\\\Controllers\\\\OrderTranslationController@store\",\"controller\":\"App\\\\Http\\\\Controllers\\\\OrderTranslationController@store\",\"namespace\":\"App\\\\Http\\\\Controllers\",\"prefix\":\"\\/fr\",\"where\":[]},\"isFallback\":false,\"controller\":{},\"defaults\":[],\"wheres\":[],\"parameters\":[],\"parameterNames\":[],\"computedMiddleware\":[\"web\"],\"compiled\":{}},{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":623,\"function\":\"runRoute\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{\"uri\":\"fr\\/order-translations\",\"methods\":[\"POST\"],\"action\":{\"middleware\":[\"web\"],\"as\":\"order-translations.store\",\"uses\":\"App\\\\Http\\\\Controllers\\\\OrderTranslationController@store\",\"controller\":\"App\\\\Http\\\\Controllers\\\\OrderTranslationController@store\",\"namespace\":\"App\\\\Http\\\\Controllers\",\"prefix\":\"\\/fr\",\"where\":[]},\"isFallback\":false,\"controller\":{},\"defaults\":[],\"wheres\":[],\"parameters\":[],\"parameterNames\":[],\"computedMiddleware\":[\"web\"],\"compiled\":{}}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Routing\\/Router.php\",\"line\":612,\"function\":\"dispatchToRoute\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Kernel.php\",\"line\":176,\"function\":\"dispatch\",\"class\":\"Illuminate\\\\Routing\\\\Router\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":130,\"function\":\"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/TransformsRequest.php\",\"line\":21,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/TransformsRequest.php\",\"line\":21,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/ValidatePostSize.php\",\"line\":27,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Middleware\\/CheckForMaintenanceMode.php\",\"line\":62,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/fideloper\\/proxy\\/src\\/TrustProxies.php\",\"line\":57,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":171,\"function\":\"handle\",\"class\":\"Fideloper\\\\Proxy\\\\TrustProxies\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"},{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Pipeline\\/Pipeline.php\",\"line\":105,\"function\":\"Illuminate\\\\Pipeline\\\\{closure}\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Kernel.php\",\"line\":151,\"function\":\"then\",\"class\":\"Illuminate\\\\Pipeline\\\\Pipeline\",\"type\":\"->\",\"args\":[{}]},{\"file\":\"\\/home\\/davyslan\\/davyslanguages\\/vendor\\/laravel\\/framework\\/src\\/Illuminate\\/Foundation\\/Http\\/Kernel.php\",\"line\":116,\"function\":\"sendRequestThroughRouter\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]},{\"file\":\"\\/home\\/davyslan\\/public_html\\/index.php\",\"line\":55,\"function\":\"handle\",\"class\":\"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\"type\":\"->\",\"args\":[{\"attributes\":{},\"request\":{},\"query\":{},\"server\":{},\"files\":{},\"cookies\":{},\"headers\":{},\"message\":\"  Demande de Traduction de document\"}]}],\"line_preview\":{\"19\":\"\",\"20\":\"    protected $client;\",\"21\":\"\",\"22\":\"    public function __construct($client)\",\"23\":\"    {\",\"24\":\"        $this->client = [\",\"25\":\"            \'name\' => $client[\'name\'],\",\"26\":\"            \'email\' => $client[\'email\'], \",\"27\":\"            \'phone\' => $client[\'phone\'], \",\"28\":\"            \'message\' => $client[\'message\']\",\"29\":\"        ];\",\"30\":\"    }\",\"31\":\"\",\"32\":\"    \\/**\",\"33\":\"     * Build the message.\",\"34\":\"     *\",\"35\":\"     * @return $this\",\"36\":\"     *\\/\",\"37\":\"    public function build()\",\"38\":\"    {\"},\"hostname\":\"lejack4.alls-heberg.fr\",\"occurrences\":2}', '2019-10-26 12:36:39'),
 (20, '8efb26dd-00ac-4c59-9591-b87773a809d9', '8efb26dd-d65d-4a80-bedb-cf52a90c1b7b', NULL, 1, 'request', '{\"uri\":\"\\/fr\\/order-translations\",\"method\":\"POST\",\"controller_action\":\"App\\\\Http\\\\Controllers\\\\OrderTranslationController@store\",\"middleware\":[\"web\"],\"headers\":{\"cookie\":\"********\",\"accept-language\":\"fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7\",\"accept-encoding\":\"gzip, deflate\",\"referer\":\"http:\\/\\/davyslanguages.com\\/fr\\/order-translations\",\"accept\":\"text\\/html,application\\/xhtml+xml,application\\/xml;q=0.9,image\\/webp,image\\/apng,*\\/*;q=0.8,application\\/signed-exchange;v=b3\",\"content-type\":\"multipart\\/form-data; boundary=----WebKitFormBoundaryheU223IZ8MjWc2F7\",\"origin\":\"http:\\/\\/davyslanguages.com\",\"user-agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/77.0.3865.120 Safari\\/537.36\",\"upgrade-insecure-requests\":\"1\",\"cache-control\":\"max-age=0\",\"content-length\":\"210031\",\"connection\":\"keep-alive\",\"host\":\"davyslanguages.com\"},\"payload\":{\"_token\":\"********\",\"deadline\":\"Date limite expresse: (24 heures)\",\"document_type\":\"Documents financiers\",\"domain\":\"Scientifique\",\"source_language\":\"fran\\u00e7ais\",\"target_language\":\"Anglais\",\"name\":\"grand\",\"firstname\":\"do\",\"type\":\"Entreprise\",\"phone\":\"3265\",\"email\":\"admin@test.com\",\"moyen_contact\":\"Non, contactez-moi par e-mail\",\"file\":{\"name\":\"apk-mobile.pdf\",\"size\":\"208.506KB\"}},\"session\":{\"locale\":\"fr\",\"_token\":\"********\",\"_previous\":{\"url\":\"http:\\/\\/davyslanguages.com\\/fr\\/order-translations\"},\"_flash\":{\"old\":[],\"new\":[]},\"alert\":[]},\"response_status\":500,\"response\":\"HTML Response\",\"duration\":339,\"memory\":26,\"hostname\":\"lejack4.alls-heberg.fr\"}', '2019-10-26 12:36:39');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `telescope_entries_tags`
---
-
 CREATE TABLE `telescope_entries_tags` (
   `entry_uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `telescope_monitoring`
---
-
 CREATE TABLE `telescope_monitoring` (
   `tag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `testimonials`
---
-
 CREATE TABLE `testimonials` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `texts`
---
 
 CREATE TABLE `texts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `text` longtext COLLATE utf8mb4_unicode_ci,
+  `text` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `texts`
---
-
 INSERT INTO `texts` (`id`, `text`, `created_at`, `updated_at`) VALUES
-(1, 'Accueil', '2019-10-17 19:13:21', '2019-10-17 19:13:21'),
-(2, 'A Propos', '2019-10-17 19:13:34', '2019-10-17 19:13:34'),
-(3, 'A Propos de nous', '2019-10-17 19:14:01', '2019-10-17 19:14:01'),
-(4, 'Notre Equipe', '2019-10-17 19:14:15', '2019-10-17 19:14:15'),
+(1, 'Accueil', '2019-10-17 19:13:00', '2022-05-20 12:48:43'),
+(2, 'A Propos', '2019-10-17 19:13:00', '2022-05-20 12:49:45'),
+(3, 'A Propos de nous', '2019-10-17 19:14:00', '2022-05-20 13:16:41'),
+(4, 'Notre Equipe', '2019-10-17 19:14:00', '2022-05-20 13:23:58'),
 (5, 'Gallerie', '2019-10-17 19:14:00', '2019-10-17 19:14:58'),
 (6, 'Services', '2019-10-17 19:15:18', '2019-10-17 19:15:18'),
 (7, 'Cours', '2019-10-17 19:15:28', '2019-10-17 19:15:28'),
 (8, 'Blog', '2019-10-17 19:15:43', '2019-10-17 19:15:43'),
-(9, 'Contactez-nous', '2019-10-17 19:16:00', '2019-10-17 19:16:00'),
+(9, 'Contactez-nous', '2019-10-17 19:16:00', '2022-05-20 13:21:24'),
 (10, 'Commander Traduction', '2019-10-17 19:16:00', '2019-10-26 11:37:46'),
 (11, 'Travaillez avec des professionnels', '2019-10-18 07:10:00', '2019-10-24 10:46:29'),
 (12, 'Lire Plus', '2019-10-18 07:11:00', '2019-10-24 11:07:27'),
 (13, 'Nous offrons une large', '2019-10-18 07:41:00', '2019-10-24 11:09:45'),
 (14, 'Range', '2019-10-18 07:42:00', '2019-10-18 07:42:00'),
 (15, 'gamme de services', '2019-10-18 07:42:00', '2019-10-24 11:11:07'),
-(16, 'ProLingua is a translation company that has been providing high quality, professional translation services for over 15 years. Check out our client list and read some client testimonials. Many customers feel that ProLingua is the best translation company for their requirements.', '2019-10-18 17:12:24', '2019-10-18 17:12:24'),
-(17, 'ProLingua stands for Global Translation Services. We have earned our name by being an international translation agency with global reach. With translators in over 100 countries and support of over 60 languages, we have the language expertise you need in every part of the world.', '2019-10-18 17:12:44', '2019-10-18 17:12:44'),
+(16, 'DavysLanguages est une société de traduction et de formation qui fournit des services de traduction et de formation professionnels de haute qualité depuis plus de 15 ans. Consultez notre liste de clients et lisez quelques témoignages de clients. De nombreux clients estiment que DavysLanguages  est la meilleure entreprise de formation et de traduction pour leurs besoins.', '2019-10-18 17:12:00', '2022-05-20 13:15:56'),
+(17, 'DavysLanguages est un centre de formation en anglais basé au Togo. Nous avons gagné notre nom en tant qu\'agence internationale de formation en traduction. Avec des traducteurs et des formateurs experts et un support pour plusieurs langues, nous avons l\'expertise linguistique dont vous avez besoin dans n\'importe quelle région du monde.', '2019-10-18 17:12:00', '2022-05-20 14:56:48'),
 (18, 'Expérience dans les voyages', '2019-10-18 17:50:00', '2019-10-24 16:51:49'),
 (19, 'Our Professional Translators are Native Speakers', '2019-10-19 09:15:55', '2019-10-19 09:15:55'),
 (20, 'In order for us to live up to our promise of an outstanding service, each job is assigned to linguists with specializations in various languages who work for our company.', '2019-10-19 09:16:22', '2019-10-19 09:16:22'),
 (21, 'Get Instant Quote', '2019-10-22 14:47:01', '2019-10-22 14:47:01'),
 (22, 'Commander traduction?', '2019-10-22 15:05:00', '2019-10-26 11:37:00'),
 (23, 'Foire aux questions', '2019-10-22 15:45:00', '2019-10-24 18:03:30'),
-(24, 'Contact Us Now', '2019-10-22 15:50:45', '2019-10-22 15:50:45'),
+(24, 'Contactez-nous maintenant', '2019-10-22 15:50:00', '2022-05-20 13:20:53'),
 (25, 'Demander un dévis', '2019-10-22 15:55:00', '2019-10-25 16:38:30'),
 (26, 'Nom & Prénoms', '2019-10-23 09:45:00', '2019-10-24 18:57:24'),
 (27, 'Email ', '2019-10-23 09:45:00', '2019-10-24 18:58:35'),
@@ -1911,58 +1547,46 @@ INSERT INTO `texts` (`id`, `text`, `created_at`, `updated_at`) VALUES
 (43, 'Nos Tarifs', '2019-10-23 16:00:00', '2019-10-24 20:17:24'),
 (44, 'Nos Services', '2019-10-23 16:36:00', '2019-10-24 20:38:27'),
 (45, 'Travaillez avec des professionnels', '2019-10-23 16:42:00', '2019-10-24 10:45:38'),
-(46, 'Besoin de se former', '2019-10-23 16:59:09', '2019-10-23 16:59:09'),
-(47, 'Nos Cours', '2019-10-23 16:59:43', '2019-10-23 16:59:43'),
-(48, 'Lire Plus', '2019-10-23 17:48:27', '2019-10-23 17:48:27'),
+(46, 'Besoin de se former', '2019-10-23 16:59:00', '2022-05-20 13:05:43'),
+(47, 'Nos Cours', '2019-10-23 16:59:00', '2022-05-20 13:04:29'),
+(48, 'Lire Plus', '2019-10-23 17:48:00', '2022-05-20 13:03:46'),
 (49, 'Notre Equipe', '2019-10-24 07:13:00', '2019-10-24 20:20:43'),
-(50, 'Notre Equipe', '2019-10-24 07:15:39', '2019-10-24 07:15:39'),
-(51, 'Send Message', '2019-10-24 08:24:12', '2019-10-24 08:24:12'),
+(50, 'Notre Equipe', '2019-10-24 07:15:00', '2022-05-20 13:03:00'),
+(51, 'Envoyer Message', '2019-10-24 08:24:00', '2022-05-20 13:02:39'),
 (52, 'Envoyer Message', '2019-10-24 08:25:00', '2019-10-24 18:59:35'),
 (53, 'Entrer en contact', '2019-10-24 08:28:00', '2019-10-24 21:01:29'),
-(54, 'Pour toutes informations, vous pouvez nous contactez via les adresse ci-dessous ', '2019-10-24 08:30:00', '2019-10-25 18:47:53'),
-(55, 'Adresse', '2019-10-24 21:03:49', '2019-10-24 21:03:49'),
-(56, 'Je m\'inscris maintenant', '2019-10-25 12:03:57', '2019-10-25 12:03:57'),
-(57, 'Nos Post', '2019-10-25 13:19:06', '2019-10-25 13:19:06'),
-(58, 'Entrez les exigences du projet', '2019-10-25 14:26:37', '2019-10-25 14:26:37'),
-(59, 'Veuillez choisir *', '2019-10-25 14:31:58', '2019-10-25 14:31:58'),
-(60, 'Délai standard (2-5 jours ouvrables)', '2019-10-25 14:32:51', '2019-10-25 14:32:51'),
-(61, 'Date limite expresse: (24 heures)', '2019-10-25 14:33:53', '2019-10-25 14:33:53'),
-(62, 'Délai extra express (2 à 12 heures)', '2019-10-25 14:35:15', '2019-10-25 14:35:15'),
-(63, 'Quel type de documents souhaitez-vous traduire?', '2019-10-25 14:36:19', '2019-10-25 14:36:19'),
-(64, 'Sélectionner le domaine de spécialisation du document ', '2019-10-25 14:58:02', '2019-10-25 14:58:02'),
-(65, 'Entrez vos informations pour procéder à la demande', '2019-10-25 15:15:22', '2019-10-25 15:15:22'),
+(54, 'Pour toutes informations, vous pouvez nous contacter via les adresse ci-dessous ', '2019-10-24 08:30:00', '2022-05-20 13:01:19'),
+(55, 'Adresse', '2019-10-24 21:03:00', '2022-05-20 13:00:19'),
+(56, 'Je m\'inscris maintenant', '2019-10-25 12:03:00', '2022-05-20 13:00:00'),
+(57, 'Nos Posts', '2019-10-25 13:19:00', '2022-05-20 12:59:20'),
+(58, 'Entrez les exigences du projet', '2019-10-25 14:26:00', '2022-05-20 12:58:55'),
+(59, 'Veuillez choisir *', '2019-10-25 14:31:00', '2022-05-20 12:58:35'),
+(60, 'Délai standard (2-5 jours ouvrables)', '2019-10-25 14:32:00', '2022-05-20 12:58:18'),
+(61, 'Date limite expresse: (24 heures)', '2019-10-25 14:33:00', '2022-05-20 12:57:59'),
+(62, 'Délai extra express (2 à 12 heures)', '2019-10-25 14:35:00', '2022-05-20 12:57:37'),
+(63, 'Quel type de documents souhaitez-vous traduire?', '2019-10-25 14:36:00', '2022-05-20 12:57:12'),
+(64, 'Sélectionner le domaine de spécialisation du document ', '2019-10-25 14:58:00', '2022-05-20 12:56:46'),
+(65, 'Entrez vos informations pour procéder à la demande', '2019-10-25 15:15:00', '2022-05-20 12:56:18'),
 (66, 'Nom', '2019-10-25 15:17:35', '2019-10-25 15:17:35'),
-(67, 'Prénoms', '2019-10-25 15:17:53', '2019-10-25 15:17:53'),
-(68, 'Comment vous contacter ?', '2019-10-25 15:20:54', '2019-10-25 15:20:54'),
-(69, 'Appelez-moi', '2019-10-25 15:22:07', '2019-10-25 15:22:07'),
-(70, 'Non, contactez-moi par e-mail', '2019-10-25 15:26:31', '2019-10-25 15:26:31'),
+(67, 'Prénoms', '2019-10-25 15:17:00', '2022-05-20 12:55:20'),
+(68, 'Comment vous contacter ?', '2019-10-25 15:20:00', '2022-05-20 12:54:57'),
+(69, 'Appelez-moi', '2019-10-25 15:22:00', '2022-05-20 12:54:31'),
+(70, 'Non, contactez-moi par e-mail', '2019-10-25 15:26:00', '2022-05-20 12:53:18'),
 (71, 'ou écrirez-nous', '2019-10-25 18:46:00', '2019-10-25 18:49:55'),
-(72, 'Contactez pour plus de détails', '2019-10-25 19:36:29', '2019-10-25 19:36:29'),
+(72, 'Contactez pour plus de détails', '2019-10-25 19:36:00', '2022-05-20 12:52:07'),
 (73, 'Contacts', '2019-10-25 20:08:50', '2019-10-25 20:08:50'),
-(74, 'Nos Photos', '2019-10-29 09:37:15', '2019-10-29 09:37:15'),
+(74, 'Nos Photos', '2019-10-29 09:37:00', '2022-05-20 12:51:21'),
 (75, 'Video', '2019-10-29 09:37:00', '2019-10-29 09:38:33'),
 (76, 'https://www.youtube.com/embed/Vt3Q-xvmTq4', '2019-10-29 09:58:00', '2019-10-29 10:15:15');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `translates`
---
 
 CREATE TABLE `translates` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `translations`
---
 
 CREATE TABLE `translations` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -1975,10 +1599,6 @@ CREATE TABLE `translations` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `translations`
---
-
 INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
 (1, 'data_rows', 'display_name', 63, 'en', 'Id', '2019-10-17 18:05:15', '2019-10-17 18:05:15'),
 (2, 'data_rows', 'display_name', 64, 'en', 'Image', '2019-10-17 18:05:15', '2019-10-17 18:05:15'),
@@ -1988,7 +1608,7 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (6, 'data_rows', 'display_name', 68, 'en', 'Updated At', '2019-10-17 18:05:15', '2019-10-17 18:05:15'),
 (7, 'data_types', 'display_name_singular', 7, 'en', 'About', '2019-10-17 18:05:15', '2019-10-17 18:05:15'),
 (8, 'data_types', 'display_name_plural', 7, 'en', 'Abouts', '2019-10-17 18:05:15', '2019-10-17 18:05:15'),
-(9, 'texts', 'text', 5, 'en', 'Gallérie', '2019-10-17 19:14:58', '2019-10-17 19:14:58'),
+(9, 'texts', 'text', 5, 'en', 'Gallery', '2019-10-17 19:14:58', '2022-05-20 12:50:16'),
 (10, 'data_rows', 'display_name', 69, 'en', 'Id', '2019-10-18 17:19:13', '2019-10-18 17:19:13'),
 (11, 'data_rows', 'display_name', 70, 'en', 'Icon', '2019-10-18 17:19:13', '2019-10-18 17:19:13'),
 (12, 'data_rows', 'display_name', 71, 'en', 'Image', '2019-10-18 17:19:13', '2019-10-18 17:19:13'),
@@ -2060,36 +1680,36 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (107, 'data_types', 'display_name_singular', 21, 'en', 'Gallery', '2019-10-24 07:38:02', '2019-10-24 07:38:02'),
 (108, 'data_types', 'display_name_plural', 21, 'en', 'Galleries', '2019-10-24 07:38:02', '2019-10-24 07:38:02'),
 (109, 'data_rows', 'display_name', 214, 'en', 'gallery_categories', '2019-10-24 07:46:40', '2019-10-24 07:46:40'),
-(111, 'slides', 'texte1', 1, 'en', 'High Professional', '2019-10-24 10:09:49', '2019-10-24 10:09:49'),
-(112, 'slides', 'texte2', 1, 'en', 'Translation Services', '2019-10-24 10:09:49', '2019-10-24 10:09:49'),
-(113, 'slides', 'texte3', 1, 'en', 'You Can Trust', '2019-10-24 10:09:49', '2019-10-24 10:09:49'),
-(114, 'slides', 'btn_text', 1, 'en', 'Translate Now', '2019-10-24 10:09:49', '2019-10-24 10:09:49'),
-(115, 'slides', 'texte1', 2, 'en', 'Work Easily', '2019-10-24 10:25:27', '2019-10-24 10:25:27'),
-(116, 'slides', 'texte2', 2, 'en', 'With Our Professional', '2019-10-24 10:25:27', '2019-10-24 10:25:27'),
+(111, 'slides', 'texte1', 1, 'en', 'Training center', '2019-10-24 10:09:49', '2022-05-20 13:59:24'),
+(112, 'slides', 'texte2', 1, 'en', 'English / French', '2019-10-24 10:09:49', '2022-05-20 13:59:24'),
+(113, 'slides', 'texte3', 1, 'en', 'Day/evening lessons', '2019-10-24 10:09:49', '2022-05-20 13:59:24'),
+(114, 'slides', 'btn_text', 1, 'en', 'Contact Us', '2019-10-24 10:09:49', '2022-05-20 13:59:24'),
+(115, 'slides', 'texte1', 2, 'en', 'Translation agency', '2019-10-24 10:25:27', '2022-05-20 14:00:40'),
+(116, 'slides', 'texte2', 2, 'en', 'and interpretation', '2019-10-24 10:25:27', '2022-05-20 14:00:40'),
 (117, 'slides', 'texte3', 2, 'en', 'Translation Agency', '2019-10-24 10:25:27', '2019-10-24 10:25:27'),
-(118, 'slides', 'btn_text', 2, 'en', 'Discover More', '2019-10-24 10:25:27', '2019-10-24 10:25:27'),
-(119, 'slides', 'texte1', 3, 'en', 'Améliorer votre Anglais ou Français ?', '2019-10-24 10:35:37', '2019-10-24 10:35:37'),
-(120, 'slides', 'texte2', 3, 'en', 'Pas de soucis, ne trainez plus', '2019-10-24 10:35:37', '2019-10-24 10:35:37'),
-(121, 'slides', 'texte3', 3, 'en', 'Venez à nous...', '2019-10-24 10:35:37', '2019-10-24 10:35:37'),
-(122, 'texts', 'text', 45, 'en', 'Proven Experience', '2019-10-24 10:45:38', '2019-10-24 10:45:38'),
+(118, 'slides', 'btn_text', 2, 'en', 'Translate now', '2019-10-24 10:25:27', '2022-05-20 14:00:40'),
+(119, 'slides', 'texte1', 3, 'en', 'Improve your English or French ?', '2019-10-24 10:35:37', '2022-05-20 14:01:50'),
+(120, 'slides', 'texte2', 3, 'en', 'No worries, don\'t drag anymore', '2019-10-24 10:35:37', '2022-05-20 14:01:50'),
+(121, 'slides', 'texte3', 3, 'en', 'Come to us...', '2019-10-24 10:35:37', '2022-05-20 14:01:50'),
+(122, 'texts', 'text', 45, 'en', 'Work with professionals', '2019-10-24 10:45:38', '2022-05-20 13:06:09'),
 (123, 'texts', 'text', 11, 'en', 'Proven Experience', '2019-10-24 10:46:29', '2019-10-24 10:46:29'),
-(124, 'abouts', 'title', 1, 'en', 'Order Professional Translations in Just a Few Clicks', '2019-10-24 10:53:02', '2019-10-24 10:53:02'),
-(125, 'abouts', 'description', 1, 'en', '<p>ProLingua is a professional translation company which offers exceptional language expertise services. We have experienced team, flexible prices, and international quality certification.</p>', '2019-10-24 10:53:02', '2019-10-24 10:53:02'),
+(124, 'abouts', 'title', 1, 'en', 'About Us', '2019-10-24 10:53:02', '2022-05-20 14:58:41'),
+(125, 'abouts', 'description', 1, 'en', '<p>Davys\' Languages is a training, translation and interpreting center that offers exceptional language expertise services. We have an experienced team and international quality certification.</p>\n<p>With Davys\' Languages, you benefit from intensive training in English and French during the day and evening at a very affordable price.</p>\n<p>You are in Togo or abroad, you want to take English lessons to improve your skills. Do not hesitate to contact us.</p>', '2019-10-24 10:53:02', '2022-05-20 14:58:41'),
 (126, 'texts', 'text', 12, 'en', 'Learn More', '2019-10-24 11:07:27', '2019-10-24 11:07:27'),
 (127, 'texts', 'text', 13, 'en', 'We Offer a Wide', '2019-10-24 11:09:45', '2019-10-24 11:09:45'),
 (128, 'texts', 'text', 15, 'en', 'of Translation Services', '2019-10-24 11:11:07', '2019-10-24 11:11:07'),
-(129, 'services', 'title', 1, 'en', 'Documents Translation', '2019-10-24 11:21:26', '2019-10-24 11:21:26'),
-(130, 'services', 'title', 2, 'en', 'Apostile & Legalization', '2019-10-24 11:22:15', '2019-10-24 11:22:15'),
-(131, 'services', 'title', 3, 'en', 'Localization Services', '2019-10-24 11:25:35', '2019-10-24 11:25:35'),
-(132, 'services', 'title', 4, 'en', 'Website Translation', '2019-10-24 11:26:04', '2019-10-24 11:26:04'),
-(133, 's_items', 'title', 12, 'en', 'traductions de documents juridiques', '2019-10-24 11:34:26', '2019-10-24 11:34:26'),
-(135, 's_items', 'title', 10, 'en', 'Traduction de diplômes', '2019-10-24 11:35:08', '2019-10-24 11:35:08'),
-(136, 's_items', 'title', 9, 'en', 'traduction de documents commerciaux', '2019-10-24 11:35:29', '2019-10-24 11:35:29'),
-(137, 's_items', 'title', 8, 'en', 'traductions de lettres', '2019-10-24 11:35:47', '2019-10-24 11:35:47'),
-(138, 's_items', 'title', 16, 'en', 'Parler / Ecrire', '2019-10-24 12:02:59', '2019-10-24 12:02:59'),
-(139, 's_items', 'title', 17, 'en', 'Lire et comprendre', '2019-10-24 12:03:20', '2019-10-24 12:03:20'),
-(140, 's_items', 'title', 18, 'en', 'Parler', '2019-10-24 12:04:27', '2019-10-24 12:04:27'),
-(141, 's_items', 'title', 20, 'en', 'Cours préparatoire', '2019-10-24 12:05:52', '2019-10-24 12:05:52'),
+(129, 'services', 'title', 1, 'en', 'Document translation', '2019-10-24 11:21:26', '2022-05-20 13:43:30'),
+(130, 'services', 'title', 2, 'en', 'Interpretation', '2019-10-24 11:22:15', '2022-05-20 13:43:08'),
+(131, 'services', 'title', 3, 'en', 'English / French courses', '2019-10-24 11:25:35', '2022-05-20 13:42:17'),
+(132, 'services', 'title', 4, 'en', 'Preparation for TOEFL / IELTS', '2019-10-24 11:26:04', '2022-05-20 13:42:47'),
+(133, 's_items', 'title', 12, 'en', 'translations of legal documents', '2019-10-24 11:34:26', '2022-05-20 13:39:46'),
+(135, 's_items', 'title', 10, 'en', 'Translation of diplomas', '2019-10-24 11:35:08', '2022-05-20 13:40:10'),
+(136, 's_items', 'title', 9, 'en', 'translation of commercial documents', '2019-10-24 11:35:29', '2022-05-20 13:41:26'),
+(137, 's_items', 'title', 8, 'en', 'certification of documents', '2019-10-24 11:35:47', '2022-05-20 13:40:59'),
+(138, 's_items', 'title', 16, 'en', 'Read', '2019-10-24 12:02:59', '2022-05-20 13:38:12'),
+(139, 's_items', 'title', 17, 'en', 'Write', '2019-10-24 12:03:20', '2022-05-20 13:37:42'),
+(140, 's_items', 'title', 18, 'en', 'Speak', '2019-10-24 12:04:27', '2022-05-20 13:37:14'),
+(141, 's_items', 'title', 20, 'en', 'Admission Cours ', '2019-10-24 12:05:52', '2022-05-20 13:36:22'),
 (142, 'prices', 'title', 1, 'en', 'STANDART', '2019-10-24 12:33:35', '2019-10-24 12:33:35'),
 (143, 'prices', 'title', 2, 'en', 'EXPRESS', '2019-10-24 12:36:50', '2019-10-24 12:36:50'),
 (144, 'prices', 'title', 3, 'en', 'INSTANT', '2019-10-24 12:37:46', '2019-10-24 12:37:46'),
@@ -2098,8 +1718,8 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (147, 'faqs', 'description', 4, 'en', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam, quis', '2019-10-24 16:08:47', '2019-10-24 16:08:47'),
 (148, 'faqs', 'title', 2, 'en', 'How do I submit a translation project?', '2019-10-24 16:10:44', '2019-10-24 16:10:44'),
 (149, 'faqs', 'description', 2, 'en', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam, quis', '2019-10-24 16:10:44', '2019-10-24 16:10:44'),
-(150, 'sections', 'title', 1, 'en', 'Our Professional Translators are Native Speakers', '2019-10-24 16:24:03', '2019-10-24 16:24:03'),
-(151, 'sections', 'description', 1, 'en', '<p>In order for us to live up to our promise of an outstanding service, each job is assigned to linguists with specializations in various languages who work for our company.</p>', '2019-10-24 16:24:03', '2019-10-24 16:24:03'),
+(150, 'sections', 'title', 1, 'en', 'Do you want to train in English ?', '2019-10-24 16:24:03', '2022-05-20 14:43:49'),
+(151, 'sections', 'description', 1, 'en', '<p>English training center.</p>\n<p>Bilingual school in Togo.</p>\n<p>Toefl lesson togo.</p>\n<p>English courses.</p>\n<p>isla togo.</p>\n<p>Best English training center.</p>\n<p>Language school in Togo.</p>', '2019-10-24 16:24:03', '2022-05-20 14:38:22'),
 (152, 'texts', 'text', 18, 'en', 'Experience in the Industry', '2019-10-24 16:51:49', '2019-10-24 16:51:49'),
 (153, 'faqs', 'title', 1, 'en', 'How can I receive a quote for my website?', '2019-10-24 17:01:30', '2019-10-24 17:01:30'),
 (154, 'faqs', 'description', 1, 'en', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam, quis', '2019-10-24 17:01:30', '2019-10-24 17:01:30'),
@@ -2107,10 +1727,10 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (156, 'sections', 'description', 2, 'en', '<p>Interested, but in a hurry?</p>', '2019-10-24 17:01:53', '2019-10-24 17:01:53'),
 (157, 'texts', 'text', 23, 'en', 'Faq’s', '2019-10-24 17:08:34', '2019-10-24 17:08:34'),
 (158, 'texts', 'text', 22, 'en', 'How it Works', '2019-10-24 17:21:23', '2019-10-24 17:21:23'),
-(159, 'how_it_works', 'title', 2, 'en', 'Approve the quote and pay', '2019-10-24 17:38:19', '2019-10-24 17:38:19'),
-(160, 'how_it_works', 'description', 2, 'en', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.', '2019-10-24 17:38:19', '2019-10-24 17:38:19'),
-(161, 'how_it_works', 'title', 1, 'en', 'Your  translation is ready in your inbox', '2019-10-24 17:41:04', '2019-10-24 17:41:04'),
-(162, 'how_it_works', 'description', 1, 'en', 'Magna aliquat enim ad minim veniam, quis nostrud exercitatio ullamco laboris nisi ut aliquip exea.', '2019-10-24 17:41:04', '2019-10-24 17:41:04'),
+(159, 'how_it_works', 'title', 2, 'en', 'Setp 2', '2019-10-24 17:38:19', '2022-05-20 13:52:42'),
+(160, 'how_it_works', 'description', 2, 'en', 'You will receive by mail or telephone the price of the order.', '2019-10-24 17:38:19', '2022-05-20 13:52:42'),
+(161, 'how_it_works', 'title', 1, 'en', 'Step 1', '2019-10-24 17:41:04', '2022-05-20 13:53:15'),
+(162, 'how_it_works', 'description', 1, 'en', 'Go to the order form, complete and send!', '2019-10-24 17:41:04', '2022-05-20 13:53:15'),
 (163, 'texts', 'text', 25, 'en', 'Get a Quote', '2019-10-24 18:55:39', '2019-10-24 18:55:39'),
 (164, 'texts', 'text', 26, 'en', 'Full Name', '2019-10-24 18:56:10', '2019-10-24 18:56:10'),
 (165, 'texts', 'text', 41, 'en', 'Email Address', '2019-10-24 18:58:06', '2019-10-24 18:58:06'),
@@ -2134,11 +1754,11 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (183, 'texts', 'text', 43, 'en', 'Competitive Prices', '2019-10-24 20:17:24', '2019-10-24 20:17:24'),
 (184, 'texts', 'text', 49, 'en', 'Meet Our Team', '2019-10-24 20:20:43', '2019-10-24 20:20:43'),
 (185, 'texts', 'text', 44, 'en', 'Our Services', '2019-10-24 20:38:27', '2019-10-24 20:38:27'),
-(186, 'texts', 'text', 53, 'en', 'Get in Touch', '2019-10-24 21:01:29', '2019-10-24 21:01:29'),
-(187, 'texts', 'text', 54, 'en', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.', '2019-10-24 21:03:18', '2019-10-24 21:03:18'),
+(186, 'texts', 'text', 53, 'en', 'Get in touch', '2019-10-24 21:01:29', '2022-05-20 13:02:07'),
+(187, 'texts', 'text', 54, 'en', 'For any information, you can contact us via the address below', '2019-10-24 21:03:18', '2022-05-20 13:01:19'),
 (188, 'learns', 'title', 3, 'en', 'How to Overcome the Fear of Writing in a Foreign Language', '2019-10-25 18:27:20', '2019-10-25 18:27:20'),
 (189, 'learns', 'description', 3, 'en', '<p>Erat elementum fuga phasellus non turpis augue. Elit massa dolor id mollis magna. Orci nulla sagittis. Habitasse risus felis sollicitudin eleifend et, vehicula pharetra commodo quis, taciti ridiculus ipsum netus facilisis quisque, suspendisse diam. Nascetur turpis pulvinar sollicitudin conubia lorem neque, odio pellentesque quisque et, pellentesque augue eget tortor ut</p>\n<p>&nbsp;</p>\n<p>Placerat orci est vitae purus, morbi sit aenean sollicitudin volutpat morbi, amet lacus a convallis, sit tempus quis consectetuer lacus. Sollicitudin et, sed tortor sagittis sapien, morbi rutrum aliquam mus pellentesque felis quis. Fusce purus vel et wisi rhoncus in, metus aenean orci curabitur blandit, et lorem rutrum vestibulum turpis</p>\n<p>&nbsp;</p>\n<p>Adipiscing eu porttitor. Mauris ante blandit nesciunt fringilla montes. Sociis sapien viverra sit est ut, ullamcorper pulvinar itaque dignissim ac donec tempor, urna nam volutpat, wisi metus at a. Feugiat id eget senectus enim erat vel, varius lorem condimentum ad, magna neque, tellus quam dignissim cras, leo id atque urna</p>', '2019-10-25 18:27:20', '2019-10-25 18:27:20'),
-(190, 'texts', 'text', 71, 'en', 'ou nous écrire', '2019-10-25 18:49:55', '2019-10-25 18:49:55'),
+(190, 'texts', 'text', 71, 'en', 'or write to us', '2019-10-25 18:49:55', '2022-05-20 12:52:52'),
 (191, 'data_rows', 'display_name', 22, 'en', 'Id', '2019-10-25 20:24:32', '2019-10-25 20:24:32'),
 (192, 'data_rows', 'display_name', 23, 'en', 'Name1', '2019-10-25 20:24:32', '2019-10-25 20:24:32'),
 (193, 'data_rows', 'display_name', 24, 'en', 'Name2', '2019-10-25 20:24:32', '2019-10-25 20:24:32'),
@@ -2177,7 +1797,7 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (226, 'posts', 'title', 4, 'en', '5 Façons qui vont t\'aider à vite parler Anglais', '2019-10-25 23:38:39', '2019-10-25 23:38:39'),
 (227, 'posts', 'description', 4, 'en', '<p>Elementum praesent tristique velit mollis. Sit sapien totam, dignissim diam sed at quis, amet tincidunt nam et quis, tortor sit nulla. Sit porttitor libero ut at et turpis, eu rhoncus blandit donec erat mauris sollicitudin, officia aptent consectetuer urna nulla. Alias consequat sem lacus porttitor ornare erat. Et vitae in curae quis risus, parturient sociis diam arcu odio nec, consectetuer malesuada tortor quis id nunc eu, facilisis sodales. At cras blandit felis vel id, consequat laoreet venenatis sem, mi ullamcorper curabitur urna morbi leo, lorem purus, vestibulum cursus rutrum curabitur augue tellus deserunt. Nullam quisque voluptates dolor amet integer id, amet justo orci pellentesque in pellentesque, odio pede tempor lectus in, cursus metus euismod, pharetra mollis ipsum. Phasellus magna condimentum semper, sit pellentesque tristique, voluptatem nec morbi nullam, soluta vel commodo massa aliquam leo ut, mauris porta id lectus. Fringilla pellentesque, amet ipsum odio at sapien aliquam, nullam adipiscing eu aliquam enim eget adipiscing. Adipiscing ac vestibulum, ipsum ut hendrerit duis lacus praesent, pellentesque eros non aliquet convallis, risus vel arcu. Nec aliquet dui lacus, dolor ante erat ipsum molestie arcu, vitae fusce ut laoreet maecenas nulla magna, vulputate libero pellentesque, magna vel amet ac convallis sem tortor.</p>\n<p>Sollicitudin mauris massa mi, diam morbi mi taciti amet aliquam, vel ornare. Proin wisi tempus, neque aliquam at. Congue id rhoncus nunc orci magna, vitae massa fringilla cum, suspendisse magni porttitor pellentesque ultrices risus, nibh venenatis curabitur accumsan erat libero quisque. Adipiscing justo nunc, consequat aenean lacus euismod hic sed. Ut integer, nulla tellus, aenean netus, elit interdum eget, sed elit eu sed consectetuer wisi id. Odio justo elit morbi, etiam ac, dolor penatibus sint libero scelerisque fringilla, id in fusce.</p>', '2019-10-25 23:38:39', '2019-10-25 23:38:39'),
 (228, 'texts', 'text', 10, 'en', 'Commander Translation', '2019-10-26 11:37:46', '2019-10-26 11:37:46'),
-(229, 'slides', 'btn_text', 3, 'en', 'Contactez-nous', '2019-10-28 15:46:30', '2019-10-28 15:46:30'),
+(229, 'slides', 'btn_text', 3, 'en', 'Contact Us', '2019-10-28 15:46:30', '2022-05-20 14:01:50'),
 (230, 'texts', 'text', 75, 'en', 'Video', '2019-10-29 09:38:33', '2019-10-29 09:38:33'),
 (231, 'texts', 'text', 76, 'en', 'https://www.youtube.com/watch?v=iHaeZzw9Hz0', '2019-10-29 09:59:14', '2019-10-29 09:59:14'),
 (232, 'teams', 'description', 1, 'en', 'Our company mission is to provide high quality translations to our international clients.', '2019-11-01 05:12:41', '2019-11-01 05:12:41'),
@@ -2193,13 +1813,47 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (242, 'data_rows', 'display_name', 128, 'en', 'Created At', '2021-08-02 15:45:59', '2021-08-02 15:45:59'),
 (243, 'data_rows', 'display_name', 129, 'en', 'Updated At', '2021-08-02 15:45:59', '2021-08-02 15:45:59'),
 (244, 'data_types', 'display_name_singular', 17, 'en', 'Contact', '2021-08-02 15:46:00', '2021-08-02 15:46:00'),
-(245, 'data_types', 'display_name_plural', 17, 'en', 'Contacts', '2021-08-02 15:46:00', '2021-08-02 15:46:00');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `users`
---
+(245, 'data_types', 'display_name_plural', 17, 'en', 'Contacts', '2021-08-02 15:46:00', '2021-08-02 15:46:00'),
+(246, 'texts', 'text', 1, 'en', 'Home', '2022-05-20 12:48:43', '2022-05-20 12:48:43'),
+(247, 'texts', 'text', 2, 'en', 'About Us', '2022-05-20 12:49:45', '2022-05-20 12:49:45'),
+(248, 'texts', 'text', 74, 'en', 'Our Photos', '2022-05-20 12:51:21', '2022-05-20 12:51:21'),
+(249, 'texts', 'text', 72, 'en', 'Contact for more details', '2022-05-20 12:52:07', '2022-05-20 12:52:07'),
+(250, 'texts', 'text', 70, 'en', 'No, contact me by email', '2022-05-20 12:53:18', '2022-05-20 12:53:18'),
+(251, 'texts', 'text', 69, 'en', 'Call me', '2022-05-20 12:54:31', '2022-05-20 12:54:31'),
+(252, 'texts', 'text', 68, 'en', 'How to contact you ?', '2022-05-20 12:54:57', '2022-05-20 12:54:57'),
+(253, 'texts', 'text', 67, 'en', 'Firstname', '2022-05-20 12:55:20', '2022-05-20 12:55:20'),
+(254, 'texts', 'text', 65, 'en', 'Enter your information to proceed with the request', '2022-05-20 12:56:18', '2022-05-20 12:56:18'),
+(255, 'texts', 'text', 64, 'en', 'Select the document\'s area of specialization', '2022-05-20 12:56:46', '2022-05-20 12:56:46'),
+(256, 'texts', 'text', 63, 'en', 'What kind of documents do you want to translate ?', '2022-05-20 12:57:12', '2022-05-20 12:57:12'),
+(257, 'texts', 'text', 62, 'en', 'Extra express delay (2 to 12 hours)', '2022-05-20 12:57:37', '2022-05-20 12:57:37'),
+(258, 'texts', 'text', 61, 'en', 'Express deadline: (24 hours)', '2022-05-20 12:57:59', '2022-05-20 12:57:59'),
+(259, 'texts', 'text', 60, 'en', 'Standard lead time (2-5 business days)', '2022-05-20 12:58:18', '2022-05-20 12:58:18'),
+(260, 'texts', 'text', 59, 'en', 'Please choose *', '2022-05-20 12:58:35', '2022-05-20 12:58:35'),
+(261, 'texts', 'text', 58, 'en', 'Enter project requirements', '2022-05-20 12:58:55', '2022-05-20 12:58:55'),
+(262, 'texts', 'text', 57, 'en', 'Our Posts', '2022-05-20 12:59:20', '2022-05-20 12:59:20'),
+(263, 'texts', 'text', 56, 'en', 'I register now', '2022-05-20 13:00:00', '2022-05-20 13:00:00'),
+(264, 'texts', 'text', 55, 'en', 'Address', '2022-05-20 13:00:19', '2022-05-20 13:00:19'),
+(265, 'texts', 'text', 51, 'en', 'Send Message', '2022-05-20 13:02:39', '2022-05-20 13:02:39'),
+(266, 'texts', 'text', 50, 'en', 'Our team', '2022-05-20 13:03:00', '2022-05-20 13:03:00'),
+(267, 'texts', 'text', 48, 'en', 'Read more', '2022-05-20 13:03:46', '2022-05-20 13:03:46'),
+(268, 'texts', 'text', 47, 'en', 'Our Courses', '2022-05-20 13:04:29', '2022-05-20 13:04:29'),
+(269, 'texts', 'text', 46, 'en', 'Need to train', '2022-05-20 13:05:43', '2022-05-20 13:05:43'),
+(270, 'texts', 'text', 17, 'en', 'DavysLanguages is an English training center based in Togo. We earned our name by being an international translation training agency. With expert translators and trainers and support for multiple languages, we have the language expertise you need in any region of the world.', '2022-05-20 13:12:56', '2022-05-20 13:12:56'),
+(271, 'texts', 'text', 9, 'en', 'Contact Us', '2022-05-20 13:13:40', '2022-05-20 13:21:24'),
+(272, 'texts', 'text', 16, 'en', 'DavysLanguages is a translation and training company that has been providing high quality professional translation and training services for over 15 years. Check out our client list and read some client testimonials. Many clients find DavysLanguages to be the best training and translation company for their needs.', '2022-05-20 13:15:56', '2022-05-20 13:15:56'),
+(273, 'texts', 'text', 4, 'en', 'Our Team', '2022-05-20 13:16:23', '2022-05-20 13:23:58'),
+(274, 'texts', 'text', 3, 'en', 'About Us', '2022-05-20 13:16:41', '2022-05-20 13:16:41'),
+(275, 'texts', 'text', 24, 'en', 'Contact Us Now', '2022-05-20 13:20:53', '2022-05-20 13:20:53'),
+(276, 'sections', 'title', 4, 'en', 'Transforming the World of Professional Translation', '2022-05-20 13:29:42', '2022-05-20 13:29:42'),
+(277, 'sections', 'description', 4, 'en', '<p>english training school in togo</p>\n<p>toefl course togo</p>\n<p>English training center</p>\n<p>best english training center</p>\n<p>american cultural center in togo</p>\n<p>english course - american embassy</p>\n<p>english language center</p>\n<p>english lessons in lom&eacute;</p>\n<p>English lessons in Adigogome</p>\n<p>english lessons in baguida</p>', '2022-05-20 13:29:42', '2022-05-20 13:30:37'),
+(278, 's_items', 'title', 19, 'en', 'Understand', '2022-05-20 13:36:52', '2022-05-20 13:36:52'),
+(279, 's_items', 'title', 15, 'en', 'Conference interpreting', '2022-05-20 13:38:30', '2022-05-20 13:44:31'),
+(280, 's_items', 'title', 14, 'en', 'Liaison interpreting', '2022-05-20 13:38:48', '2022-05-20 13:44:50'),
+(281, 's_items', 'title', 13, 'en', 'Consecutive interpreting', '2022-05-20 13:39:23', '2022-05-20 13:39:23'),
+(282, 'how_it_works', 'title', 4, 'en', 'Step 4', '2022-05-20 13:51:39', '2022-05-20 13:51:39'),
+(283, 'how_it_works', 'description', 4, 'en', 'Your translation will be ready in your inbox or by the medium you specified.', '2022-05-20 13:51:39', '2022-05-20 13:51:39'),
+(284, 'how_it_works', 'title', 3, 'en', 'Step 3', '2022-05-20 13:52:06', '2022-05-20 13:52:06'),
+(285, 'how_it_works', 'description', 3, 'en', 'Approve quote and pay', '2022-05-20 13:52:06', '2022-05-20 13:52:06');
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
@@ -2210,35 +1864,19 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `settings` text COLLATE utf8mb4_unicode_ci,
+  `settings` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `users`
---
-
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Dav', 'dav@dav.com', 'users/default.png', NULL, '$2y$10$ukCIcpkuiiU5Wisafn/3NOChF9/FQJz3gGzuHNdpQoFkhrM00F1C6', 'drO22yUBUOoNMNwUKeHbuX0OWifoua2PcCr5bbPyAzAUPFaxsbO9yyGN8A9X', NULL, '2019-10-10 15:21:34', '2019-10-10 15:21:35'),
-(2, 3, 'Admin', 'admin@admin.com', 'users\\October2019\\H9C2JAJzY9rrWpAnIwwS.png', NULL, '$2y$10$9ZNiJjRMd7TKeM4N3b6j0.46c.Sp.G8Qy6UxvylDv7NTyg7UnscxO', NULL, '{\"locale\":\"fr\"}', '2019-10-24 09:55:57', '2019-10-24 10:00:10');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user_roles`
---
+(2, 3, 'Admin', 'admin@admin.com', 'users\\October2019\\H9C2JAJzY9rrWpAnIwwS.png', NULL, '$2y$10$HQimB2DQLCnIc/48v6Fk8OMCjWcsKJCFQLhy/Q235PUin2nOKRyiG', NULL, '{\"locale\":\"fr\"}', '2019-10-24 09:55:57', '2022-05-20 12:48:05');
 
 CREATE TABLE `user_roles` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `wink_authors`
---
 
 CREATE TABLE `wink_authors` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2251,21 +1889,11 @@ CREATE TABLE `wink_authors` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `meta` text COLLATE utf8mb4_unicode_ci
+  `meta` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `wink_authors`
---
 
 INSERT INTO `wink_authors` (`id`, `slug`, `name`, `email`, `password`, `bio`, `avatar`, `remember_token`, `created_at`, `updated_at`, `meta`) VALUES
 ('4a67406a-f291-41fc-be1a-092c34b302f1', 'regina-phalange', 'Regina Phalange', 'dav@dav.com', '$2y$10$ukCIcpkuiiU5Wisafn/3NOChF9/FQJz3gGzuHNdpQoFkhrM00F1C6', 'This is me.', NULL, NULL, '2019-10-12 11:44:46', '2019-10-12 11:44:46', NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `wink_pages`
---
 
 CREATE TABLE `wink_pages` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2274,14 +1902,8 @@ CREATE TABLE `wink_pages` (
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `meta` text COLLATE utf8mb4_unicode_ci
+  `meta` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `wink_posts`
---
 
 CREATE TABLE `wink_posts` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2289,39 +1911,23 @@ CREATE TABLE `wink_posts` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `excerpt` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `published` tinyint(1) NOT NULL DEFAULT 0,
   `publish_date` datetime NOT NULL DEFAULT '2018-10-10 00:00:00',
   `featured_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `featured_image_caption` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `author_id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `meta` text COLLATE utf8mb4_unicode_ci
+  `meta` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `wink_posts`
---
 
 INSERT INTO `wink_posts` (`id`, `slug`, `title`, `excerpt`, `body`, `published`, `publish_date`, `featured_image`, `featured_image_caption`, `author_id`, `created_at`, `updated_at`, `meta`) VALUES
 ('360c3602-b67b-492e-9192-02d14ed3d6cb', 'draft-360c3602-b67b-492e-9192-02d14ed3d6cb', 'Draft', '', '<p>u ksk sdsionsdio sdioin qsdfsdoins sidfos</p><div class=\"embedded_image\" contenteditable=\"false\" data-layout=\"default\"><img alt=\"\" src=\"/storage/wink/images/Kjm3VlUpNMUPXnF4441ZlugWm5CoVBp4ttj0mekF.jpeg\"></div><div class=\"inline_html\" contenteditable=\"false\">https://www.youtube.com/watch?v=_Kn6_0IRHck</div><div class=\"inline_html\" contenteditable=\"false\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_Kn6_0IRHck\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe></div><div class=\"inline_html\" contenteditable=\"false\">https://www.youtube.com/watch?v=_Kn6_0IRHck</div><p><br></p>', 0, '2019-10-12 13:56:00', NULL, '', '4a67406a-f291-41fc-be1a-092c34b302f1', '2019-10-12 11:56:36', '2019-10-12 12:03:33', '{\"meta_description\":null,\"opengraph_title\":null,\"opengraph_description\":null,\"opengraph_image\":null,\"opengraph_image_width\":null,\"opengraph_image_height\":null,\"twitter_title\":null,\"twitter_description\":null,\"twitter_image\":null}');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `wink_posts_tags`
---
 
 CREATE TABLE `wink_posts_tags` (
   `post_id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tag_id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `wink_tags`
---
 
 CREATE TABLE `wink_tags` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2329,230 +1935,125 @@ CREATE TABLE `wink_tags` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `meta` text COLLATE utf8mb4_unicode_ci
+  `meta` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Index pour les tables déchargées
---
 
---
--- Index pour la table `abouts`
---
 ALTER TABLE `abouts`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `comments`
---
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `comments_post_id_foreign` (`post_id`);
 
---
--- Index pour la table `contacts`
---
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `data_rows`
---
 ALTER TABLE `data_rows`
   ADD PRIMARY KEY (`id`),
   ADD KEY `data_rows_data_type_id_foreign` (`data_type_id`);
 
---
--- Index pour la table `data_types`
---
 ALTER TABLE `data_types`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `data_types_name_unique` (`name`),
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
 
---
--- Index pour la table `entreprises`
---
 ALTER TABLE `entreprises`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `failed_jobs`
---
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `faqs`
---
 ALTER TABLE `faqs`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `galleries`
---
 ALTER TABLE `galleries`
   ADD PRIMARY KEY (`id`),
   ADD KEY `galleries_gallery_category_id_foreign` (`gallery_category_id`);
 
---
--- Index pour la table `gallery_categories`
---
 ALTER TABLE `gallery_categories`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `how_it_works`
---
 ALTER TABLE `how_it_works`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `images`
---
 ALTER TABLE `images`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `learns`
---
 ALTER TABLE `learns`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `menus`
---
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `menus_name_unique` (`name`);
 
---
--- Index pour la table `menu_items`
---
 ALTER TABLE `menu_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_items_menu_id_foreign` (`menu_id`);
 
---
--- Index pour la table `migrations`
---
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `news_letters`
---
 ALTER TABLE `news_letters`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `order_translations`
---
 ALTER TABLE `order_translations`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `password_resets`
---
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
---
--- Index pour la table `permissions`
---
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `permissions_key_index` (`key`);
 
---
--- Index pour la table `permission_role`
---
 ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
   ADD KEY `permission_role_permission_id_index` (`permission_id`),
   ADD KEY `permission_role_role_id_index` (`role_id`);
 
---
--- Index pour la table `posts`
---
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `prices`
---
 ALTER TABLE `prices`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `p_items`
---
 ALTER TABLE `p_items`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `p_item_price`
---
 ALTER TABLE `p_item_price`
   ADD PRIMARY KEY (`id`),
   ADD KEY `p_item_price_p_item_id_foreign` (`p_item_id`),
   ADD KEY `p_item_price_price_id_foreign` (`price_id`);
 
---
--- Index pour la table `roles`
---
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `roles_name_unique` (`name`);
 
---
--- Index pour la table `sections`
---
 ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `services`
---
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `settings`
---
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `settings_key_unique` (`key`);
 
---
--- Index pour la table `slides`
---
 ALTER TABLE `slides`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `s_items`
---
 ALTER TABLE `s_items`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `s_item_service`
---
 ALTER TABLE `s_item_service`
   ADD PRIMARY KEY (`id`),
   ADD KEY `s_item_service_s_item_id_foreign` (`s_item_id`),
   ADD KEY `s_item_service_service_id_foreign` (`service_id`);
 
---
--- Index pour la table `teams`
---
 ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `telescope_entries`
---
 ALTER TABLE `telescope_entries`
   ADD PRIMARY KEY (`sequence`),
   ADD UNIQUE KEY `telescope_entries_uuid_unique` (`uuid`),
@@ -2560,381 +2061,198 @@ ALTER TABLE `telescope_entries`
   ADD KEY `telescope_entries_type_should_display_on_index_index` (`type`,`should_display_on_index`),
   ADD KEY `telescope_entries_family_hash_index` (`family_hash`);
 
---
--- Index pour la table `telescope_entries_tags`
---
 ALTER TABLE `telescope_entries_tags`
   ADD KEY `telescope_entries_tags_entry_uuid_tag_index` (`entry_uuid`,`tag`),
   ADD KEY `telescope_entries_tags_tag_index` (`tag`);
 
---
--- Index pour la table `testimonials`
---
 ALTER TABLE `testimonials`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `texts`
---
 ALTER TABLE `texts`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `translates`
---
 ALTER TABLE `translates`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `translations`
---
 ALTER TABLE `translations`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`);
 
---
--- Index pour la table `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`),
   ADD KEY `users_role_id_foreign` (`role_id`);
 
---
--- Index pour la table `user_roles`
---
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`user_id`,`role_id`),
   ADD KEY `user_roles_user_id_index` (`user_id`),
   ADD KEY `user_roles_role_id_index` (`role_id`);
 
---
--- Index pour la table `wink_authors`
---
 ALTER TABLE `wink_authors`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `wink_authors_slug_unique` (`slug`),
   ADD UNIQUE KEY `wink_authors_email_unique` (`email`);
 
---
--- Index pour la table `wink_pages`
---
 ALTER TABLE `wink_pages`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `wink_pages_slug_unique` (`slug`);
 
---
--- Index pour la table `wink_posts`
---
 ALTER TABLE `wink_posts`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `wink_posts_slug_unique` (`slug`),
   ADD KEY `wink_posts_author_id_index` (`author_id`);
 
---
--- Index pour la table `wink_posts_tags`
---
 ALTER TABLE `wink_posts_tags`
   ADD UNIQUE KEY `wink_posts_tags_post_id_tag_id_unique` (`post_id`,`tag_id`);
 
---
--- Index pour la table `wink_tags`
---
 ALTER TABLE `wink_tags`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `wink_tags_slug_unique` (`slug`),
   ADD KEY `wink_tags_created_at_index` (`created_at`);
 
---
--- AUTO_INCREMENT pour les tables déchargées
---
 
---
--- AUTO_INCREMENT pour la table `abouts`
---
 ALTER TABLE `abouts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT pour la table `comments`
---
 ALTER TABLE `comments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT pour la table `contacts`
---
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
---
--- AUTO_INCREMENT pour la table `data_rows`
---
 ALTER TABLE `data_rows`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
 
---
--- AUTO_INCREMENT pour la table `data_types`
---
 ALTER TABLE `data_types`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
---
--- AUTO_INCREMENT pour la table `entreprises`
---
 ALTER TABLE `entreprises`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT pour la table `failed_jobs`
---
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT pour la table `faqs`
---
 ALTER TABLE `faqs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT pour la table `galleries`
---
 ALTER TABLE `galleries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
--- AUTO_INCREMENT pour la table `gallery_categories`
---
 ALTER TABLE `gallery_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT pour la table `how_it_works`
---
 ALTER TABLE `how_it_works`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT pour la table `images`
---
 ALTER TABLE `images`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
---
--- AUTO_INCREMENT pour la table `learns`
---
 ALTER TABLE `learns`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT pour la table `menus`
---
 ALTER TABLE `menus`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT pour la table `menu_items`
---
 ALTER TABLE `menu_items`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
---
--- AUTO_INCREMENT pour la table `migrations`
---
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
---
--- AUTO_INCREMENT pour la table `news_letters`
---
 ALTER TABLE `news_letters`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT pour la table `order_translations`
---
 ALTER TABLE `order_translations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
---
--- AUTO_INCREMENT pour la table `permissions`
---
 ALTER TABLE `permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
---
--- AUTO_INCREMENT pour la table `posts`
---
 ALTER TABLE `posts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT pour la table `prices`
---
 ALTER TABLE `prices`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT pour la table `p_items`
---
 ALTER TABLE `p_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
---
--- AUTO_INCREMENT pour la table `p_item_price`
---
 ALTER TABLE `p_item_price`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
---
--- AUTO_INCREMENT pour la table `roles`
---
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT pour la table `sections`
---
 ALTER TABLE `sections`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT pour la table `services`
---
 ALTER TABLE `services`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT pour la table `settings`
---
 ALTER TABLE `settings`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- AUTO_INCREMENT pour la table `slides`
---
 ALTER TABLE `slides`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT pour la table `s_items`
---
 ALTER TABLE `s_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
---
--- AUTO_INCREMENT pour la table `s_item_service`
---
 ALTER TABLE `s_item_service`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
---
--- AUTO_INCREMENT pour la table `teams`
---
 ALTER TABLE `teams`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT pour la table `telescope_entries`
---
 ALTER TABLE `telescope_entries`
   MODIFY `sequence` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
---
--- AUTO_INCREMENT pour la table `testimonials`
---
 ALTER TABLE `testimonials`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT pour la table `texts`
---
 ALTER TABLE `texts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
---
--- AUTO_INCREMENT pour la table `translates`
---
 ALTER TABLE `translates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT pour la table `translations`
---
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=286;
 
---
--- AUTO_INCREMENT pour la table `users`
---
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- Contraintes pour les tables déchargées
---
 
---
--- Contraintes pour la table `comments`
---
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
---
--- Contraintes pour la table `data_rows`
---
 ALTER TABLE `data_rows`
   ADD CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Contraintes pour la table `galleries`
---
 ALTER TABLE `galleries`
   ADD CONSTRAINT `galleries_gallery_category_id_foreign` FOREIGN KEY (`gallery_category_id`) REFERENCES `gallery_categories` (`id`) ON DELETE CASCADE;
 
---
--- Contraintes pour la table `menu_items`
---
 ALTER TABLE `menu_items`
   ADD CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
 
---
--- Contraintes pour la table `permission_role`
---
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
---
--- Contraintes pour la table `p_item_price`
---
 ALTER TABLE `p_item_price`
   ADD CONSTRAINT `p_item_price_p_item_id_foreign` FOREIGN KEY (`p_item_id`) REFERENCES `p_items` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `p_item_price_price_id_foreign` FOREIGN KEY (`price_id`) REFERENCES `prices` (`id`) ON DELETE CASCADE;
 
---
--- Contraintes pour la table `s_item_service`
---
 ALTER TABLE `s_item_service`
   ADD CONSTRAINT `s_item_service_s_item_id_foreign` FOREIGN KEY (`s_item_id`) REFERENCES `s_items` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `s_item_service_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE;
 
---
--- Contraintes pour la table `telescope_entries_tags`
---
 ALTER TABLE `telescope_entries_tags`
   ADD CONSTRAINT `telescope_entries_tags_entry_uuid_foreign` FOREIGN KEY (`entry_uuid`) REFERENCES `telescope_entries` (`uuid`) ON DELETE CASCADE;
 
---
--- Contraintes pour la table `users`
---
 ALTER TABLE `users`
   ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
---
--- Contraintes pour la table `user_roles`
---
 ALTER TABLE `user_roles`
   ADD CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `user_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;

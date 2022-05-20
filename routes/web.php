@@ -25,8 +25,10 @@ if(session('locale') != 'en' && session('locale') != 'fr' ){
 	session(['locale' => 'fr']);
 }
 
-Route::prefix(session('locale'))->group(function () {
+Route::get('fr', 'HomeController@index');
+Route::get('en', 'HomeController@index');
 
+Route::prefix(session('locale'))->group(function () {
 	Route::resources([
 		'abouts' => 'AboutController',
 		'services' => 'ServiceController',
