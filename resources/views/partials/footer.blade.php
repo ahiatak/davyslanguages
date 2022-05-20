@@ -142,7 +142,7 @@
 
                                     <div class="wpb_text_column wpb_content_element ">
                                         <div class="wpb_wrapper">
-                                            <p style="text-align: center;"><a href="#"  rel="noopener noreferrer">Copyright Davys'Languages</a> © {{ date('Y') }} Design by Elom Zounon & Ahiataku David</p>
+                                            <p style="text-align: center;"><a href="#"  rel="noopener noreferrer">Copyright Davys'Languages</a> © {{ date('Y') }} Powered by Ahiataku David Elom Zounon</p>
 
                                         </div>
                                     </div>
