@@ -1,3 +1,13 @@
+@php
+    $current_url = explode('/', url()->current());
+    if (isset($current_url[3]) && $current_url[3] && $current_url[3] == 'en') {
+        session(['locale' => 'en']);
+    } else {
+        session(['locale' => 'fr']);
+    }
+
+@endphp
+
 <!doctype html>
 <html lang="{{ (session('locale'))??str_replace("_", "-", app()->getLocale()) }}">
 <head>

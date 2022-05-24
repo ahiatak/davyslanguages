@@ -20,7 +20,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-
 if(session('locale') != 'en' && session('locale') != 'fr' ){		
 	session(['locale' => 'fr']);
 }
