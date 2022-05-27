@@ -112,7 +112,10 @@
         $image2 = $images->where('id', 3)->first();
     @endphp
 
-    @php $title = "Contact: Centre de Formation d'Anglais au Togo - Lomé" @endphp
+    @php $title = "Cours d'anglais - ambassade des etats-unis au Togo" @endphp
+    @php 
+        if(session('locale') == 'en'){ $title = "English Courses - U.S. Embassy Togo"; }
+    @endphp
 
 
     <article id="post-35" class="post_item_single post_type_page post-35 page type-page status-publish hentry">

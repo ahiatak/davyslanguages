@@ -17,7 +17,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> @if(isset($title)) {{$title}} @else {{ config("app.name", "Centre de Formation en Anglais au Togo | Davys'Languages") }} @endif</title>
+    @php 
+        $tl = "Centre de Formation en Anglais au Togo";
+
+        if(session('locale') == 'en'){ $tl = "English Training Center in Togo"; }
+    @endphp
+
+    <title> @if(isset($title)) {{$title}} @else {{ $tl . " | Davys'Languages" }} @endif</title>
 
     <meta name="google-site-verification" content="DJ485_fdAs_8M3emOxJttiGuxY-ay5xUOlvoadC_pS4" />
 

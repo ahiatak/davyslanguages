@@ -94,6 +94,12 @@
 @endpush
 
 @section('content')
+
+@php $title = 'Traducteurs Interprètes Togo' @endphp
+@php 
+    if(session('locale') == 'en'){ $title = "Translators Interpreters Togo"; }
+@endphp
+
 <article id="post-37" class="post_item_single post_type_page post-37 page
     type-page status-publish hentry">
     <div class="post_content entry-content">

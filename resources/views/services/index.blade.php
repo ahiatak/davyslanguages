@@ -131,7 +131,11 @@
 
 @section('content')
 
-    @php $title = "Offre de formation | TOEFL / IELTS au Togo - Lomé | Cours d'Anglais | Traduction de documents" @endphp
+    @php $title = "Offre de formation TOEFL/IELTS au Togo - Lomé | Cours d'Anglais | Traduction de documents" @endphp
+
+    @php 
+        if(session('locale') == 'en'){ $title = "TOEFL/IELTS training offer in Togo - Lomé | English courses | Document translation"; }
+    @endphp
 
     <article id="post-34" class="post_item_single post_type_page post-34 page type-page status-publish hentry">
         <div class="post_content entry-content">

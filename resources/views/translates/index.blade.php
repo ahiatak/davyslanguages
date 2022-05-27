@@ -60,6 +60,9 @@
 @section('content')
 
     @php $title = 'Traducteur Agrée au Togo' @endphp
+    @php 
+        if(session('locale') == 'en'){ $title = "Certified Translator in Togo"; }
+    @endphp
 
     <article id="post-38" class="post_item_single post_type_page post-38 page type-page status-publish hentry">
 
